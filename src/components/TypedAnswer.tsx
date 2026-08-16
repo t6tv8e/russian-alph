@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import type { FormEvent } from 'react'
 
 interface TypedAnswerProps {
@@ -13,6 +14,14 @@ export function TypedAnswer({
   onChange,
   onConfirm,
 }: TypedAnswerProps) {
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (!revealed) {
+      inputRef.current?.focus()
+    }
+  }, [revealed])
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     onConfirm()
@@ -23,6 +32,7 @@ export function TypedAnswer({
       <label htmlFor="latin-answer">Type the Latin equivalent</label>
       <div className="typed-answer-row">
         <input
+          ref={inputRef}
           id="latin-answer"
           name="latin-answer"
           value={value}

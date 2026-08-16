@@ -85,11 +85,21 @@ describe('Cyrillic lesson', () => {
     expect(screen.queryByLabelText('Type the Latin equivalent')).toBeNull()
   })
 
-  it('uses confirmed typed recall for a familiar letter', async () => {
+  it('autofocuses confirmed typed recall, including the next typed question', async () => {
     const user = userEvent.setup()
     const stored = createLearningProgress(ALPHABET)
     stored.letters.a = {
       ...stored.letters.a,
+      level: 3,
+      choiceCorrectCount: 3,
+      typingUnlocked: true,
+      attempts: 3,
+      correctAttempts: 3,
+      nextDueAt: 0,
+      lastResult: 'incorrect',
+    }
+    stored.letters.be = {
+      ...stored.letters.be,
       level: 3,
       choiceCorrectCount: 3,
       typingUnlocked: true,
@@ -102,10 +112,16 @@ describe('Cyrillic lesson', () => {
     render(<App />)
 
     const input = screen.getByLabelText('Type the Latin equivalent')
+    expect(input).toHaveFocus()
     await user.type(input, 'a')
     expect(screen.queryByText('Exactly right!')).toBeNull()
 
     await user.click(screen.getByRole('button', { name: /Confirm/ }))
     expect(screen.getByText('Exactly right!')).toBeTruthy()
+
+    await user.click(screen.getByRole('button', { name: 'Continue' }))
+    const nextInput = screen.getByLabelText('Type the Latin equivalent')
+    expect(nextInput).toHaveFocus()
+    expect(nextInput).toHaveValue('')
   })
 })
