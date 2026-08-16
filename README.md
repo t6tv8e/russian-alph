@@ -1,32 +1,30 @@
-# React + TypeScript + Vite
+# Быстро Буквы
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A small, adaptive tool for learning all 33 letters of the Russian Cyrillic alphabet.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Four-choice recognition for unfamiliar letters
+- Typed recall after a letter becomes familiar
+- Leitner-style spaced repetition with quick retries after mistakes
+- Russian example words in Cyrillic handwriting, with translations revealed after answering
+- Overall mastery and accuracy tracking
+- Versioned, local-only progress persistence
+- Responsive and keyboard-accessible lesson UI
 
-## React Compiler
+## Development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Quality checks
+
+```bash
+npm run lint
+npm test
+npm run build
+```
+
+Progress is stored in the browser under `bystro-bukvy-progress-v1`. No account or backend is required.

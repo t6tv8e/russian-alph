@@ -1,121 +1,79 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import { FeedbackPanel } from './components/FeedbackPanel'
+import { LetterCard } from './components/LetterCard'
+import { MultipleChoice } from './components/MultipleChoice'
+import { ProgressHeader } from './components/ProgressHeader'
+import { SessionComplete } from './components/SessionComplete'
+import { TypedAnswer } from './components/TypedAnswer'
+import { useLearningSession } from './hooks/useLearningSession'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const session = useLearningSession()
+  const revealed = session.phase === 'feedback'
+
+  const handleReset = () => {
+    if (window.confirm('Reset all Cyrillic learning progress? This cannot be undone.')) {
+      session.resetSession()
+    }
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="app-shell">
+      <ProgressHeader progress={session.progress} />
 
-      <div className="ticks"></div>
+      <main className="lesson-layout" id="lesson">
+        {session.currentLetter && session.currentProgress ? (
+          <>
+            <LetterCard
+              letter={session.currentLetter}
+              mode={session.answerMode}
+              level={session.currentProgress.level}
+              revealTranslations={revealed}
+            >
+              {session.answerMode === 'choice' ? (
+                <MultipleChoice
+                  choices={session.choices}
+                  correctLetterId={session.currentLetter.id}
+                  selectedChoiceId={session.selectedChoiceId}
+                  revealed={revealed}
+                  onChoose={session.chooseAnswer}
+                />
+              ) : (
+                <TypedAnswer
+                  value={session.typedAnswer}
+                  revealed={revealed}
+                  onChange={session.setTypedAnswer}
+                  onConfirm={session.confirmTypedAnswer}
+                />
+              )}
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+              {session.result ? (
+                <FeedbackPanel
+                  result={session.result}
+                  letter={session.currentLetter}
+                  onContinue={session.continueSession}
+                />
+              ) : null}
+            </LetterCard>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+            <aside className="learning-note" aria-label="Learning method">
+              <span className="learning-note-icon" aria-hidden="true">↻</span>
+              <p>
+                <strong>Smart repetition</strong>
+                Missed letters return sooner. Familiar letters graduate from choices to typed recall.
+              </p>
+            </aside>
+          </>
+        ) : (
+          <SessionComplete progress={session.progress} onPractice={session.startPractice} />
+        )}
+      </main>
+
+      <footer className="app-footer">
+        <span>Progress is saved on this device.</span>
+        <button type="button" onClick={handleReset}>Reset progress</button>
+      </footer>
+    </div>
   )
 }
 
