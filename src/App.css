@@ -151,17 +151,53 @@
 }
 
 .cyrillic-letter {
-  min-height: 184px;
+  min-height: 190px;
   margin: 3px 0 4px;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(118px, 18vw, 168px);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -8px;
   text-shadow: 0 3px 0 rgba(17, 124, 121, 0.06);
+}
+
+.character-variant {
+  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-label {
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.printed-character {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 142px;
+  line-height: 0.85;
+}
+
+.cursive-character {
+  font-family: "Caveat", cursive;
+  font-size: 158px;
+  font-weight: 600;
+  line-height: 0.76;
+}
+
+.character-divider {
+  width: 1px;
+  height: 116px;
+  background: #e0e2dc;
 }
 
 .example-list {
@@ -172,7 +208,7 @@
 
 .example {
   min-width: 0;
-  min-height: 83px;
+  min-height: 105px;
   padding: 11px 16px 8px;
   display: flex;
   flex-direction: column;
@@ -183,13 +219,23 @@
   background: #faf8f0;
 }
 
+.printed-word {
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.25px;
+  line-height: 1.1;
+}
+
 .russian-word {
   overflow-wrap: anywhere;
+  margin-top: 3px;
   color: #304d52;
   font-family: "Caveat", cursive;
-  font-size: clamp(30px, 5vw, 39px);
+  font-size: clamp(30px, 5vw, 37px);
   font-weight: 600;
-  line-height: 0.95;
+  line-height: 0.9;
 }
 
 .word-details,
@@ -664,8 +710,29 @@
   }
 
   .cyrillic-letter {
-    min-height: 139px;
-    font-size: 124px;
+    min-height: 154px;
+    gap: 14px;
+  }
+
+  .character-variant {
+    min-width: 94px;
+  }
+
+  .character-label {
+    margin-bottom: 5px;
+    font-size: 8px;
+  }
+
+  .printed-character {
+    font-size: 106px;
+  }
+
+  .cursive-character {
+    font-size: 119px;
+  }
+
+  .character-divider {
+    height: 90px;
   }
 
   .example-list {
@@ -673,12 +740,17 @@
   }
 
   .example {
-    min-height: 70px;
+    min-height: 94px;
     padding-inline: 8px;
   }
 
+  .printed-word {
+    font-size: 11px;
+    letter-spacing: 0.8px;
+  }
+
   .russian-word {
-    font-size: 30px;
+    font-size: 29px;
   }
 
   .answer-area {
