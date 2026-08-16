@@ -13,9 +13,12 @@ describe('alphabet content', () => {
 
     for (const letter of ALPHABET) {
       expect(letter.acceptedAnswers.length).toBeGreaterThan(0)
+      expect(letter.ipa.length).toBeGreaterThan(0)
+      expect(letter.pronunciation.length).toBeGreaterThan(0)
+      expect(letter.spokenName.length).toBeGreaterThan(0)
       expect(letter.distractorIds).toHaveLength(3)
       expect(letter.distractorIds.every((id) => ids.has(id))).toBe(true)
-      expect(letter.examples.length).toBeGreaterThanOrEqual(4)
+      expect(letter.examples.length).toBeGreaterThanOrEqual(6)
       expect(letter.examples.every((example) => example.latin.length > 0)).toBe(true)
       expect(
         letter.examples.every((example) =>

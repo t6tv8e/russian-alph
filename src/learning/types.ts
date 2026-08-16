@@ -9,6 +9,9 @@ export interface CyrillicLetter {
   uppercase: string
   lowercase: string
   answer: string
+  ipa: string
+  pronunciation: string
+  spokenName: string
   acceptedAnswers: string[]
   distractorIds: string[]
   examples: WordExample[]

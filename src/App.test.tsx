@@ -1,14 +1,21 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from './App'
 import { ALPHABET } from './data/alphabet'
 import { STORAGE_KEY } from './hooks/useStoredProgress'
+import { THEME_STORAGE_KEY } from './hooks/useTheme'
 import { createLearningProgress } from './learning/scheduler'
 
 describe('Cyrillic lesson', () => {
   beforeEach(() => {
     window.localStorage.removeItem(STORAGE_KEY)
+    window.localStorage.removeItem(THEME_STORAGE_KEY)
+    delete document.documentElement.dataset.theme
+  })
+
+  afterEach(() => {
+    vi.unstubAllGlobals()
   })
 
   it('grades a choice immediately and reveals word translations', async () => {
@@ -16,8 +23,11 @@ describe('Cyrillic lesson', () => {
     render(<App />)
 
     expect(screen.getByRole('heading', { name: 'Cyrillic letter А' })).toHaveClass('cyrillic-letter')
+    expect(screen.getByText('Like a in father.')).toBeTruthy()
+    expect(screen.getByRole('button', { name: 'Play the Russian name of А' })).toBeTruthy()
     expect(screen.getByLabelText('АРБУЗ')).toBeTruthy()
     expect(screen.getByLabelText('ПАРК')).toBeTruthy()
+    expect(screen.getByLabelText('САХАР')).toBeTruthy()
     expect(screen.queryByText('арбуз')).toBeNull()
     expect(screen.queryByText('arbuz')).toBeNull()
     expect(screen.queryByText('watermelon')).toBeNull()
@@ -28,6 +38,51 @@ describe('Cyrillic lesson', () => {
     expect(screen.getByText('arbuz')).toBeTruthy()
     expect(screen.getByText('watermelon')).toBeTruthy()
     expect(screen.getByText('mother')).toBeTruthy()
+  })
+
+  it('plays a letter with an available Russian browser voice', async () => {
+    const user = userEvent.setup()
+    const speak = vi.fn()
+    const speechSynthesis = {
+      addEventListener: vi.fn(),
+      cancel: vi.fn(),
+      getVoices: () => [{ lang: 'ru-RU', name: 'Russian' } as SpeechSynthesisVoice],
+      removeEventListener: vi.fn(),
+      speak,
+    }
+
+    class TestUtterance {
+      lang = ''
+      onend: (() => void) | null = null
+      onerror: (() => void) | null = null
+      rate = 1
+      text: string
+      voice: SpeechSynthesisVoice | null = null
+
+      constructor(text: string) {
+        this.text = text
+      }
+    }
+
+    vi.stubGlobal('speechSynthesis', speechSynthesis)
+    vi.stubGlobal('SpeechSynthesisUtterance', TestUtterance)
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: 'Play the Russian name of А' }))
+
+    expect(speak).toHaveBeenCalledTimes(1)
+    expect(speak.mock.calls[0][0]).toMatchObject({ lang: 'ru-RU', text: 'а' })
+  })
+
+  it('persists the user-selected dark mode', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: 'Switch to dark mode' }))
+
+    expect(document.documentElement.dataset.theme).toBe('dark')
+    expect(window.localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark')
+    expect(screen.getByRole('button', { name: 'Switch to light mode' })).toBeTruthy()
   })
 
   it('opens a separate progress screen with every letter and preserves the lesson', async () => {

@@ -1,4 +1,4 @@
-import type { AnswerResult, CyrillicLetter } from '../learning/types'
+import type { AnswerResult, CyrillicLetter } from '../../learning/types'
 
 interface FeedbackPanelProps {
   result: AnswerResult

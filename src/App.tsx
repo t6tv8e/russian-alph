@@ -1,18 +1,20 @@
 import { useState } from 'react'
-import './App.css'
-import { FeedbackPanel } from './components/FeedbackPanel'
-import { LetterCard } from './components/LetterCard'
-import { MultipleChoice } from './components/MultipleChoice'
-import { ProgressHeader } from './components/ProgressHeader'
-import { ProgressScreen } from './components/ProgressScreen'
-import { SessionComplete } from './components/SessionComplete'
-import { TypedAnswer } from './components/TypedAnswer'
+import './styles/app.css'
+import { ProgressHeader } from './components/layout/ProgressHeader'
+import { FeedbackPanel } from './components/lesson/FeedbackPanel'
+import { LetterCard } from './components/lesson/LetterCard'
+import { MultipleChoice } from './components/lesson/MultipleChoice'
+import { SessionComplete } from './components/lesson/SessionComplete'
+import { TypedAnswer } from './components/lesson/TypedAnswer'
+import { ProgressScreen } from './components/progress/ProgressScreen'
 import { useLearningSession } from './hooks/useLearningSession'
+import { useTheme } from './hooks/useTheme'
 
 type AppView = 'lesson' | 'progress'
 
 function App() {
   const session = useLearningSession()
+  const { theme, toggleTheme } = useTheme()
   const [activeView, setActiveView] = useState<AppView>('lesson')
   const revealed = session.phase === 'feedback'
 
@@ -29,6 +31,8 @@ function App() {
         activeView={activeView}
         onShowLesson={() => setActiveView('lesson')}
         onShowProgress={() => setActiveView('progress')}
+        theme={theme}
+        onToggleTheme={toggleTheme}
       />
 
       {activeView === 'progress' ? (

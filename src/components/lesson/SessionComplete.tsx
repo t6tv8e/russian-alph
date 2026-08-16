@@ -1,10 +1,10 @@
-import { ALPHABET } from '../data/alphabet'
+import { ALPHABET } from '../../data/alphabet'
 import {
   getMasteredCount,
   getNextReviewAt,
   getOverallProgress,
-} from '../learning/scheduler'
-import type { LearningProgress } from '../learning/types'
+} from '../../learning/scheduler'
+import type { LearningProgress } from '../../learning/types'
 
 interface SessionCompleteProps {
   progress: LearningProgress

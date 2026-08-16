@@ -1,16 +1,20 @@
-import { ALPHABET } from '../data/alphabet'
+import { ALPHABET } from '../../data/alphabet'
+import type { Theme } from '../../hooks/useTheme'
 import {
   getMasteredCount,
   getOverallProgress,
   getSessionStats,
-} from '../learning/scheduler'
-import type { LearningProgress } from '../learning/types'
+} from '../../learning/scheduler'
+import type { LearningProgress } from '../../learning/types'
+import { ThemeToggle } from '../common/ThemeToggle'
 
 interface ProgressHeaderProps {
   progress: LearningProgress
   activeView: 'lesson' | 'progress'
   onShowLesson: () => void
   onShowProgress: () => void
+  theme: Theme
+  onToggleTheme: () => void
 }
 
 export function ProgressHeader({
@@ -18,6 +22,8 @@ export function ProgressHeader({
   activeView,
   onShowLesson,
   onShowProgress,
+  theme,
+  onToggleTheme,
 }: ProgressHeaderProps) {
   const overallProgress = getOverallProgress(progress)
   const masteredCount = getMasteredCount(progress)
@@ -55,6 +61,8 @@ export function ProgressHeader({
             <span className="progress-fill" style={{ width: `${overallProgress}%` }} />
           </div>
         </div>
+
+        <ThemeToggle theme={theme} onToggle={onToggleTheme} />
 
         <button
           className="progress-nav-button"

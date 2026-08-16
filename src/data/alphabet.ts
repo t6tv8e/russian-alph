@@ -6,6 +6,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'А',
     lowercase: 'а',
     answer: 'a',
+    ipa: '/a/',
+    pronunciation: 'Like a in father.',
+    spokenName: 'а',
     acceptedAnswers: ['a'],
     distractorIds: ['o', 'ya', 'ye'],
     examples: [
@@ -13,6 +16,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'мама', latin: 'mama', english: 'mother' },
       { russian: 'парк', latin: 'park', english: 'park' },
       { russian: 'лампа', latin: 'lampa', english: 'lamp' },
+      { russian: 'карта', latin: 'karta', english: 'map' },
+      { russian: 'сахар', latin: 'sakhar', english: 'sugar' },
     ],
   },
   {
@@ -20,6 +25,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Б',
     lowercase: 'б',
     answer: 'b',
+    ipa: '/b/',
+    pronunciation: 'Like b in bat.',
+    spokenName: 'бэ',
     acceptedAnswers: ['b'],
     distractorIds: ['ve', 'pe', 'de'],
     examples: [
@@ -27,6 +35,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'хлеб', latin: 'khleb', english: 'bread' },
       { russian: 'банк', latin: 'bank', english: 'bank' },
       { russian: 'рыба', latin: 'ryba', english: 'fish' },
+      { russian: 'билет', latin: 'bilet', english: 'ticket' },
+      { russian: 'собака', latin: 'sobaka', english: 'dog' },
     ],
   },
   {
@@ -34,6 +44,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'В',
     lowercase: 'в',
     answer: 'v',
+    ipa: '/v/',
+    pronunciation: 'Like v in voice.',
+    spokenName: 'вэ',
     acceptedAnswers: ['v', 'w'],
     distractorIds: ['be', 'ef', 'ge'],
     examples: [
@@ -41,6 +54,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'сова', latin: 'sova', english: 'owl' },
       { russian: 'ветер', latin: 'veter', english: 'wind' },
       { russian: 'трава', latin: 'trava', english: 'grass' },
+      { russian: 'врач', latin: 'vrach', english: 'doctor' },
+      { russian: 'дерево', latin: 'derevo', english: 'tree' },
     ],
   },
   {
@@ -48,6 +63,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Г',
     lowercase: 'г',
     answer: 'g',
+    ipa: '/ɡ/',
+    pronunciation: 'Like the hard g in go.',
+    spokenName: 'гэ',
     acceptedAnswers: ['g'],
     distractorIds: ['de', 'ka', 'er'],
     examples: [
@@ -55,6 +73,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'книга', latin: 'kniga', english: 'book' },
       { russian: 'глаз', latin: 'glaz', english: 'eye' },
       { russian: 'нога', latin: 'noga', english: 'leg' },
+      { russian: 'газета', latin: 'gazeta', english: 'newspaper' },
+      { russian: 'берег', latin: 'bereg', english: 'shore' },
     ],
   },
   {
@@ -62,6 +82,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Д',
     lowercase: 'д',
     answer: 'd',
+    ipa: '/d/',
+    pronunciation: 'Like d in dog.',
+    spokenName: 'дэ',
     acceptedAnswers: ['d'],
     distractorIds: ['ge', 'te', 'el'],
     examples: [
@@ -69,6 +92,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'вода', latin: 'voda', english: 'water' },
       { russian: 'друг', latin: 'drug', english: 'friend' },
       { russian: 'сад', latin: 'sad', english: 'garden' },
+      { russian: 'дождь', latin: "dozhd'", english: 'rain' },
+      { russian: 'медведь', latin: "medved'", english: 'bear' },
     ],
   },
   {
@@ -76,6 +101,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Е',
     lowercase: 'е',
     answer: 'ye / e',
+    ipa: '/je/ or /e/',
+    pronunciation: 'Like ye in yes at the start of a word; after a consonant it sounds closer to e and usually softens that consonant.',
+    spokenName: 'е',
     acceptedAnswers: ['ye', 'e', 'je'],
     distractorIds: ['e', 'yo', 'ya'],
     examples: [
@@ -83,6 +111,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'дерево', latin: 'derevo', english: 'tree' },
       { russian: 'мел', latin: 'mel', english: 'chalk' },
       { russian: 'лето', latin: 'leto', english: 'summer' },
+      { russian: 'река', latin: 'reka', english: 'river' },
+      { russian: 'хлеб', latin: 'khleb', english: 'bread' },
     ],
   },
   {
@@ -90,6 +120,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Ё',
     lowercase: 'ё',
     answer: 'yo',
+    ipa: '/jo/',
+    pronunciation: 'Like yo in yonder. In standard Russian it is stressed.',
+    spokenName: 'ё',
     acceptedAnswers: ['yo', 'jo', 'ë'],
     distractorIds: ['ye', 'yu', 'o'],
     examples: [
@@ -97,6 +130,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'мёд', latin: 'myod', english: 'honey' },
       { russian: 'ёлка', latin: 'yolka', english: 'fir tree' },
       { russian: 'звёзды', latin: 'zvyozdy', english: 'stars' },
+      { russian: 'ребёнок', latin: 'rebyonok', english: 'child' },
+      { russian: 'берёза', latin: 'beryoza', english: 'birch' },
     ],
   },
   {
@@ -104,6 +139,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Ж',
     lowercase: 'ж',
     answer: 'zh',
+    ipa: '/ʐ/',
+    pronunciation: 'Like the s in measure, but pronounced more firmly.',
+    spokenName: 'жэ',
     acceptedAnswers: ['zh', 'ž'],
     distractorIds: ['ze', 'sha', 'che'],
     examples: [
@@ -111,6 +149,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'лыжи', latin: 'lyzhi', english: 'skis' },
       { russian: 'жара', latin: 'zhara', english: 'heat' },
       { russian: 'нож', latin: 'nozh', english: 'knife' },
+      { russian: 'жизнь', latin: "zhizn'", english: 'life' },
+      { russian: 'одежда', latin: 'odezhda', english: 'clothing' },
     ],
   },
   {
@@ -118,6 +158,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'З',
     lowercase: 'з',
     answer: 'z',
+    ipa: '/z/',
+    pronunciation: 'Like z in zoo.',
+    spokenName: 'зэ',
     acceptedAnswers: ['z'],
     distractorIds: ['es', 'zhe', 'tse'],
     examples: [
@@ -125,6 +168,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'коза', latin: 'koza', english: 'goat' },
       { russian: 'зонт', latin: 'zont', english: 'umbrella' },
       { russian: 'глаза', latin: 'glaza', english: 'eyes' },
+      { russian: 'звезда', latin: 'zvezda', english: 'star' },
+      { russian: 'язык', latin: 'yazyk', english: 'language' },
     ],
   },
   {
@@ -132,6 +177,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'И',
     lowercase: 'и',
     answer: 'i',
+    ipa: '/i/',
+    pronunciation: 'Like ee in see. It usually softens the consonant before it.',
+    spokenName: 'и',
     acceptedAnswers: ['i', 'ee'],
     distractorIds: ['short-i', 'yery', 'e'],
     examples: [
@@ -139,6 +187,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'книга', latin: 'kniga', english: 'book' },
       { russian: 'имя', latin: 'imya', english: 'name' },
       { russian: 'лиса', latin: 'lisa', english: 'fox' },
+      { russian: 'мир', latin: 'mir', english: 'peace' },
+      { russian: 'птица', latin: 'ptitsa', english: 'bird' },
     ],
   },
   {
@@ -146,6 +196,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Й',
     lowercase: 'й',
     answer: 'y (short i)',
+    ipa: '/j/',
+    pronunciation: 'Like the consonant y in yes, often appearing after a vowel as in toy.',
+    spokenName: 'и краткое',
     acceptedAnswers: ['y', 'j', 'short i', 'shorti'],
     distractorIds: ['i', 'yery', 'u'],
     examples: [
@@ -153,6 +206,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'музей', latin: 'muzey', english: 'museum' },
       { russian: 'мой', latin: 'moy', english: 'my' },
       { russian: 'герой', latin: 'geroy', english: 'hero' },
+      { russian: 'новый', latin: 'novyy', english: 'new' },
+      { russian: 'синий', latin: 'siniy', english: 'blue' },
     ],
   },
   {
@@ -160,6 +215,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'К',
     lowercase: 'к',
     answer: 'k',
+    ipa: '/k/',
+    pronunciation: 'Like k in skate, with less puff of air than in key.',
+    spokenName: 'ка',
     acceptedAnswers: ['k'],
     distractorIds: ['ge', 'kha', 'el'],
     examples: [
@@ -167,6 +225,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'рука', latin: 'ruka', english: 'hand' },
       { russian: 'книга', latin: 'kniga', english: 'book' },
       { russian: 'окно', latin: 'okno', english: 'window' },
+      { russian: 'школа', latin: 'shkola', english: 'school' },
+      { russian: 'молоко', latin: 'moloko', english: 'milk' },
     ],
   },
   {
@@ -174,6 +234,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Л',
     lowercase: 'л',
     answer: 'l',
+    ipa: '/l/ or /lʲ/',
+    pronunciation: 'Like l in lamp; before a soft vowel it becomes a lighter, softer l.',
+    spokenName: 'эль',
     acceptedAnswers: ['l'],
     distractorIds: ['er', 'pe', 'de'],
     examples: [
@@ -181,6 +244,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'стол', latin: 'stol', english: 'table' },
       { russian: 'лес', latin: 'les', english: 'forest' },
       { russian: 'молоко', latin: 'moloko', english: 'milk' },
+      { russian: 'яблоко', latin: 'yabloko', english: 'apple' },
+      { russian: 'белый', latin: 'belyy', english: 'white' },
     ],
   },
   {
@@ -188,6 +253,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'М',
     lowercase: 'м',
     answer: 'm',
+    ipa: '/m/',
+    pronunciation: 'Like m in map.',
+    spokenName: 'эм',
     acceptedAnswers: ['m'],
     distractorIds: ['en', 'el', 'i'],
     examples: [
@@ -195,6 +263,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'мама', latin: 'mama', english: 'mother' },
       { russian: 'мост', latin: 'most', english: 'bridge' },
       { russian: 'зима', latin: 'zima', english: 'winter' },
+      { russian: 'метро', latin: 'metro', english: 'subway' },
+      { russian: 'время', latin: 'vremya', english: 'time' },
     ],
   },
   {
@@ -202,6 +272,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Н',
     lowercase: 'н',
     answer: 'n',
+    ipa: '/n/',
+    pronunciation: 'Like n in nose.',
+    spokenName: 'эн',
     acceptedAnswers: ['n'],
     distractorIds: ['em', 'pe', 'ka'],
     examples: [
@@ -209,6 +282,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'окно', latin: 'okno', english: 'window' },
       { russian: 'небо', latin: 'nebo', english: 'sky' },
       { russian: 'луна', latin: 'luna', english: 'moon' },
+      { russian: 'книга', latin: 'kniga', english: 'book' },
+      { russian: 'солнце', latin: 'solntse', english: 'sun' },
     ],
   },
   {
@@ -216,6 +291,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'О',
     lowercase: 'о',
     answer: 'o',
+    ipa: '/o/',
+    pronunciation: 'Like o in more when stressed. Unstressed о often moves toward an a sound.',
+    spokenName: 'о',
     acceptedAnswers: ['o'],
     distractorIds: ['a', 'u', 'yo'],
     examples: [
@@ -223,6 +301,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'молоко', latin: 'moloko', english: 'milk' },
       { russian: 'остров', latin: 'ostrov', english: 'island' },
       { russian: 'море', latin: 'more', english: 'sea' },
+      { russian: 'собака', latin: 'sobaka', english: 'dog' },
+      { russian: 'слово', latin: 'slovo', english: 'word' },
     ],
   },
   {
@@ -230,6 +310,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'П',
     lowercase: 'п',
     answer: 'p',
+    ipa: '/p/',
+    pronunciation: 'Like p in spin, with little puff of air.',
+    spokenName: 'пэ',
     acceptedAnswers: ['p'],
     distractorIds: ['be', 'te', 'ef'],
     examples: [
@@ -237,6 +320,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'суп', latin: 'sup', english: 'soup' },
       { russian: 'парк', latin: 'park', english: 'park' },
       { russian: 'лампа', latin: 'lampa', english: 'lamp' },
+      { russian: 'поезд', latin: 'poyezd', english: 'train' },
+      { russian: 'письмо', latin: "pis'mo", english: 'letter' },
     ],
   },
   {
@@ -244,6 +329,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Р',
     lowercase: 'р',
     answer: 'r',
+    ipa: '/r/',
+    pronunciation: 'A rolled or tapped r, similar to Spanish r.',
+    spokenName: 'эр',
     acceptedAnswers: ['r'],
     distractorIds: ['el', 'pe', 'ge'],
     examples: [
@@ -251,6 +339,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'гора', latin: 'gora', english: 'mountain' },
       { russian: 'река', latin: 'reka', english: 'river' },
       { russian: 'дверь', latin: "dver'", english: 'door' },
+      { russian: 'работа', latin: 'rabota', english: 'work' },
+      { russian: 'море', latin: 'more', english: 'sea' },
     ],
   },
   {
@@ -258,6 +348,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'С',
     lowercase: 'с',
     answer: 's',
+    ipa: '/s/',
+    pronunciation: 'Like s in sun, never like c in city.',
+    spokenName: 'эс',
     acceptedAnswers: ['s'],
     distractorIds: ['ze', 'tse', 'sha'],
     examples: [
@@ -265,6 +358,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'лес', latin: 'les', english: 'forest' },
       { russian: 'снег', latin: 'sneg', english: 'snow' },
       { russian: 'нос', latin: 'nos', english: 'nose' },
+      { russian: 'стол', latin: 'stol', english: 'table' },
+      { russian: 'собака', latin: 'sobaka', english: 'dog' },
     ],
   },
   {
@@ -272,6 +367,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Т',
     lowercase: 'т',
     answer: 't',
+    ipa: '/t/',
+    pronunciation: 'Like t in stop, pronounced with the tongue slightly closer to the teeth.',
+    spokenName: 'тэ',
     acceptedAnswers: ['t'],
     distractorIds: ['de', 'pe', 'ge'],
     examples: [
@@ -279,6 +377,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'кот', latin: 'kot', english: 'cat' },
       { russian: 'театр', latin: 'teatr', english: 'theater' },
       { russian: 'утка', latin: 'utka', english: 'duck' },
+      { russian: 'телефон', latin: 'telefon', english: 'telephone' },
+      { russian: 'цветок', latin: 'tsvetok', english: 'flower' },
     ],
   },
   {
@@ -286,6 +386,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'У',
     lowercase: 'у',
     answer: 'u',
+    ipa: '/u/',
+    pronunciation: 'Like oo in boot.',
+    spokenName: 'у',
     acceptedAnswers: ['u', 'oo'],
     distractorIds: ['yery', 'yu', 'o'],
     examples: [
@@ -293,6 +396,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'суп', latin: 'sup', english: 'soup' },
       { russian: 'утро', latin: 'utro', english: 'morning' },
       { russian: 'луна', latin: 'luna', english: 'moon' },
+      { russian: 'музыка', latin: 'muzyka', english: 'music' },
+      { russian: 'улица', latin: 'ulitsa', english: 'street' },
     ],
   },
   {
@@ -300,6 +405,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Ф',
     lowercase: 'ф',
     answer: 'f',
+    ipa: '/f/',
+    pronunciation: 'Like f in fine.',
+    spokenName: 'эф',
     acceptedAnswers: ['f', 'ph'],
     distractorIds: ['pe', 've', 'kha'],
     examples: [
@@ -307,6 +415,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'шарф', latin: 'sharf', english: 'scarf' },
       { russian: 'флаг', latin: 'flag', english: 'flag' },
       { russian: 'кофе', latin: 'kofe', english: 'coffee' },
+      { russian: 'футбол', latin: 'futbol', english: 'football' },
+      { russian: 'телефон', latin: 'telefon', english: 'telephone' },
     ],
   },
   {
@@ -314,6 +424,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Х',
     lowercase: 'х',
     answer: 'kh',
+    ipa: '/x/',
+    pronunciation: 'Like ch in Scottish loch or German Bach, made at the back of the throat.',
+    spokenName: 'ха',
     acceptedAnswers: ['kh', 'h', 'x'],
     distractorIds: ['ka', 'ge', 'sha'],
     examples: [
@@ -321,6 +434,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'ухо', latin: 'ukho', english: 'ear' },
       { russian: 'холод', latin: 'kholod', english: 'cold' },
       { russian: 'кухня', latin: 'kukhnya', english: 'kitchen' },
+      { russian: 'хорошо', latin: 'khorosho', english: 'well' },
+      { russian: 'воздух', latin: 'vozdukh', english: 'air' },
     ],
   },
   {
@@ -328,6 +443,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Ц',
     lowercase: 'ц',
     answer: 'ts',
+    ipa: '/ts/',
+    pronunciation: 'Like ts at the end of cats.',
+    spokenName: 'цэ',
     acceptedAnswers: ['ts'],
     distractorIds: ['es', 'che', 'sha'],
     examples: [
@@ -335,6 +453,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'улица', latin: 'ulitsa', english: 'street' },
       { russian: 'цветок', latin: 'tsvetok', english: 'flower' },
       { russian: 'яйцо', latin: 'yaytso', english: 'egg' },
+      { russian: 'солнце', latin: 'solntse', english: 'sun' },
+      { russian: 'конец', latin: 'konets', english: 'end' },
     ],
   },
   {
@@ -342,6 +462,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Ч',
     lowercase: 'ч',
     answer: 'ch',
+    ipa: '/tɕ/',
+    pronunciation: 'Like ch in chair, but slightly softer.',
+    spokenName: 'чэ',
     acceptedAnswers: ['ch', 'č'],
     distractorIds: ['tse', 'sha', 'shcha'],
     examples: [
@@ -349,6 +472,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'ночь', latin: "noch'", english: 'night' },
       { russian: 'часы', latin: 'chasy', english: 'clock' },
       { russian: 'ключ', latin: 'klyuch', english: 'key' },
+      { russian: 'человек', latin: 'chelovek', english: 'person' },
+      { russian: 'девочка', latin: 'devochka', english: 'girl' },
     ],
   },
   {
@@ -356,6 +481,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Ш',
     lowercase: 'ш',
     answer: 'sh',
+    ipa: '/ʂ/',
+    pronunciation: 'Like sh in shoe, but with a harder, deeper sound.',
+    spokenName: 'ша',
     acceptedAnswers: ['sh', 'š'],
     distractorIds: ['che', 'zhe', 'shcha'],
     examples: [
@@ -363,6 +491,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'машина', latin: 'mashina', english: 'car' },
       { russian: 'шар', latin: 'shar', english: 'ball' },
       { russian: 'мышь', latin: "mysh'", english: 'mouse' },
+      { russian: 'кошка', latin: 'koshka', english: 'cat' },
+      { russian: 'карандаш', latin: 'karandash', english: 'pencil' },
     ],
   },
   {
@@ -370,6 +500,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Щ',
     lowercase: 'щ',
     answer: 'shch',
+    ipa: '/ɕː/',
+    pronunciation: 'A long, soft sh sound, roughly like the middle of fresh sheets.',
+    spokenName: 'ща',
     acceptedAnswers: ['shch', 'sch', 'shh', 'šč'],
     distractorIds: ['sha', 'che', 'tse'],
     examples: [
@@ -377,6 +510,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'овощи', latin: 'ovoshchi', english: 'vegetables' },
       { russian: 'щётка', latin: 'shchyotka', english: 'brush' },
       { russian: 'площадь', latin: "ploshchad'", english: 'square' },
+      { russian: 'ещё', latin: 'yeshchyo', english: 'more' },
+      { russian: 'женщина', latin: 'zhenshchina', english: 'woman' },
     ],
   },
   {
@@ -384,6 +519,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Ъ',
     lowercase: 'ъ',
     answer: 'hard sign',
+    ipa: 'no sound',
+    pronunciation: 'It has no sound of its own. It separates a hard consonant from a following й-sound vowel.',
+    spokenName: 'твёрдый знак',
     acceptedAnswers: ['hard sign', 'hardsign', '"'],
     distractorIds: ['soft-sign', 'yery', 'short-i'],
     examples: [
@@ -391,6 +529,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'подъезд', latin: 'pod"yezd', english: 'entrance' },
       { russian: 'съезд', latin: 's"yezd', english: 'congress' },
       { russian: 'объявление', latin: 'ob"yavlenie', english: 'announcement' },
+      { russian: 'объяснение', latin: 'ob"yasnenie', english: 'explanation' },
+      { russian: 'разъём', latin: 'raz"yom', english: 'connector' },
     ],
   },
   {
@@ -398,6 +538,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Ы',
     lowercase: 'ы',
     answer: 'y (hard vowel)',
+    ipa: '/ɨ/',
+    pronunciation: 'No exact English match: say a short i with the tongue pulled back.',
+    spokenName: 'ы',
     acceptedAnswers: ['y', 'hard y', 'hardy', 'yery'],
     distractorIds: ['short-i', 'i', 'u'],
     examples: [
@@ -405,6 +548,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'рыба', latin: 'ryba', english: 'fish' },
       { russian: 'мы', latin: 'my', english: 'we' },
       { russian: 'лыжи', latin: 'lyzhi', english: 'skis' },
+      { russian: 'столы', latin: 'stoly', english: 'tables' },
+      { russian: 'быстрый', latin: 'bystryy', english: 'fast' },
     ],
   },
   {
@@ -412,6 +557,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Ь',
     lowercase: 'ь',
     answer: 'soft sign',
+    ipa: 'no sound',
+    pronunciation: 'It has no sound of its own. It softens the consonant immediately before it.',
+    spokenName: 'мягкий знак',
     acceptedAnswers: ['soft sign', 'softsign', "'"],
     distractorIds: ['hard-sign', 'short-i', 'i'],
     examples: [
@@ -419,6 +567,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'письмо', latin: "pis'mo", english: 'letter' },
       { russian: 'мать', latin: "mat'", english: 'mother' },
       { russian: 'дверь', latin: "dver'", english: 'door' },
+      { russian: 'учитель', latin: "uchitel'", english: 'teacher' },
+      { russian: 'любовь', latin: "lyubov'", english: 'love' },
     ],
   },
   {
@@ -426,6 +576,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Э',
     lowercase: 'э',
     answer: 'e',
+    ipa: '/e/',
+    pronunciation: 'Like e in met, without an initial y sound.',
+    spokenName: 'э',
     acceptedAnswers: ['e'],
     distractorIds: ['ye', 'a', 'o'],
     examples: [
@@ -433,6 +586,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'поэт', latin: 'poet', english: 'poet' },
       { russian: 'это', latin: 'eto', english: 'this' },
       { russian: 'этаж', latin: 'etazh', english: 'floor' },
+      { russian: 'электричество', latin: 'elektrichestvo', english: 'electricity' },
+      { russian: 'аэропорт', latin: 'aeroport', english: 'airport' },
     ],
   },
   {
@@ -440,6 +595,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Ю',
     lowercase: 'ю',
     answer: 'yu',
+    ipa: '/ju/',
+    pronunciation: 'Like yu in yule at the start of a word; after a consonant it marks softness plus an oo sound.',
+    spokenName: 'ю',
     acceptedAnswers: ['yu', 'iu', 'ju'],
     distractorIds: ['u', 'yo', 'ya'],
     examples: [
@@ -447,6 +605,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'ключ', latin: 'klyuch', english: 'key' },
       { russian: 'юг', latin: 'yug', english: 'south' },
       { russian: 'союз', latin: 'soyuz', english: 'union' },
+      { russian: 'люди', latin: 'lyudi', english: 'people' },
+      { russian: 'июль', latin: "iyul'", english: 'July' },
     ],
   },
   {
@@ -454,6 +614,9 @@ export const ALPHABET: CyrillicLetter[] = [
     uppercase: 'Я',
     lowercase: 'я',
     answer: 'ya',
+    ipa: '/ja/',
+    pronunciation: 'Like ya in yard at the start of a word; after a consonant it marks softness plus an a sound.',
+    spokenName: 'я',
     acceptedAnswers: ['ya', 'ia', 'ja'],
     distractorIds: ['a', 'yu', 'ye'],
     examples: [
@@ -461,6 +624,8 @@ export const ALPHABET: CyrillicLetter[] = [
       { russian: 'семья', latin: "sem'ya", english: 'family' },
       { russian: 'язык', latin: 'yazyk', english: 'language' },
       { russian: 'маяк', latin: 'mayak', english: 'lighthouse' },
+      { russian: 'Россия', latin: 'Rossiya', english: 'Russia' },
+      { russian: 'неделя', latin: 'nedelya', english: 'week' },
     ],
   },
 ]

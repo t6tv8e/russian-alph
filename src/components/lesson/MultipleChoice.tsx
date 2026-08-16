@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import type { Choice } from '../learning/types'
+import type { Choice } from '../../learning/types'
 
 interface MultipleChoiceProps {
   choices: Choice[]
