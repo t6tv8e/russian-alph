@@ -30,6 +30,19 @@ describe('Cyrillic lesson', () => {
     expect(screen.getByText('mother')).toBeTruthy()
   })
 
+  it('selects multiple-choice answers with the A–D keyboard shortcuts', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    const correctChoice = screen.getByRole('button', { name: 'Choose a' })
+    const shortcut = correctChoice.getAttribute('aria-keyshortcuts')
+    expect(shortcut).toMatch(/^[A-D]$/)
+
+    await user.keyboard(shortcut!.toLowerCase())
+
+    expect(screen.getByText('Exactly right!')).toBeTruthy()
+  })
+
   it('reveals the expected transliteration after a mistake', async () => {
     const user = userEvent.setup()
     render(<App />)

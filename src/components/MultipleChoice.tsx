@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import type { Choice } from '../learning/types'
 
 interface MultipleChoiceProps {
@@ -17,6 +18,29 @@ export function MultipleChoice({
   revealed,
   onChoose,
 }: MultipleChoiceProps) {
+  useEffect(() => {
+    if (revealed) {
+      return
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.altKey || event.ctrlKey || event.metaKey || event.repeat) {
+        return
+      }
+
+      const choiceIndex = CHOICE_KEYS.indexOf(event.key.toUpperCase())
+      const choice = choices[choiceIndex]
+
+      if (choiceIndex >= 0 && choice) {
+        event.preventDefault()
+        onChoose(choice.letterId)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [choices, onChoose, revealed])
+
   return (
     <fieldset className="choice-fieldset">
       <legend>Choose one answer</legend>
@@ -41,6 +65,7 @@ export function MultipleChoice({
               onClick={() => onChoose(choice.letterId)}
               disabled={revealed}
               aria-label={`Choose ${choice.label}`}
+              aria-keyshortcuts={CHOICE_KEYS[index]}
             >
               <span className="choice-key" aria-hidden="true">{CHOICE_KEYS[index]}</span>
               <span>{choice.label}</span>
