@@ -7,7 +7,7 @@ A small, adaptive tool for learning all 33 letters of the Russian Cyrillic alpha
 - Four-choice recognition for unfamiliar letters
 - Typed recall after a letter becomes familiar
 - Leitner-style spaced repetition with quick retries after mistakes
-- Russian example words in Cyrillic handwriting, with translations revealed after answering
+- Russian example words in uppercase print, with transliterations and translations revealed after answering
 - Overall mastery and accuracy tracking
 - Versioned, local-only progress persistence
 - Responsive and keyboard-accessible lesson UI

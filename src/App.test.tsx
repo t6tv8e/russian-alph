@@ -16,10 +16,8 @@ describe('Cyrillic lesson', () => {
     render(<App />)
 
     expect(screen.getByRole('heading', { name: 'Cyrillic letter А' })).toBeTruthy()
-    expect(screen.getByText('Print')).toBeTruthy()
-    expect(screen.getByText('Cursive')).toBeTruthy()
     expect(screen.getByText('АРБУЗ')).toBeTruthy()
-    expect(screen.getByText('арбуз')).toBeTruthy()
+    expect(screen.queryByText('арбуз')).toBeNull()
     expect(screen.queryByText('arbuz')).toBeNull()
     expect(screen.queryByText('watermelon')).toBeNull()
 

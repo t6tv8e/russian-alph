@@ -28,24 +28,15 @@ export function LetterCard({
       <div className="letter-stage">
         <p className="letter-prompt">Which Latin equivalent matches?</p>
         <h1 className="cyrillic-letter" lang="ru" aria-label={`Cyrillic letter ${letter.uppercase}`}>
-          <span className="character-variant">
-            <span className="character-label">Print</span>
-            <span className="printed-character" aria-hidden="true">{letter.uppercase}</span>
-          </span>
-          <span className="character-divider" aria-hidden="true" />
-          <span className="character-variant">
-            <span className="character-label">Cursive</span>
-            <span className="cursive-character" aria-hidden="true">{letter.lowercase}</span>
-          </span>
+          {letter.uppercase}
         </h1>
 
-        <div className="example-list" aria-label="Russian example words in uppercase print and cursive">
+        <div className="example-list" aria-label="Russian example words in uppercase">
           {letter.examples.map((example) => (
             <div className="example" key={example.russian}>
-              <span className="printed-word" lang="ru" aria-hidden="true">
+              <span className="printed-word" lang="ru">
                 {example.russian.toLocaleUpperCase('ru')}
               </span>
-              <span className="russian-word" lang="ru">{example.russian}</span>
               {revealTranslations ? (
                 <span className="word-details">
                   <span className="word-latin">{example.latin}</span>
