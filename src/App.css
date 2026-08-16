@@ -155,7 +155,7 @@
   margin: 3px 0 4px;
   display: grid;
   place-items: center;
-  color: var(--ink);
+  color: var(--teal);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(118px, 18vw, 168px);
   font-weight: 500;
@@ -192,6 +192,13 @@
   line-height: 1.1;
 }
 
+.target-character {
+  padding: 0 1px;
+  border-radius: 3px;
+  color: var(--teal);
+  background: var(--teal-pale);
+}
+
 .word-details,
 .translation-placeholder {
   min-height: 17px;
@@ -203,9 +210,11 @@
 
 .word-details {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: center;
-  gap: 5px;
+  gap: 1px 5px;
+  line-height: 1.25;
   animation: reveal-translation 220ms ease-out both;
 }
 

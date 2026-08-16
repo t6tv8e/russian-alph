@@ -11,6 +11,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'арбуз', latin: 'arbuz', english: 'watermelon' },
       { russian: 'мама', latin: 'mama', english: 'mother' },
+      { russian: 'парк', latin: 'park', english: 'park' },
+      { russian: 'лампа', latin: 'lampa', english: 'lamp' },
     ],
   },
   {
@@ -23,6 +25,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'бабушка', latin: 'babushka', english: 'grandmother' },
       { russian: 'хлеб', latin: 'khleb', english: 'bread' },
+      { russian: 'банк', latin: 'bank', english: 'bank' },
+      { russian: 'рыба', latin: 'ryba', english: 'fish' },
     ],
   },
   {
@@ -35,6 +39,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'вода', latin: 'voda', english: 'water' },
       { russian: 'сова', latin: 'sova', english: 'owl' },
+      { russian: 'ветер', latin: 'veter', english: 'wind' },
+      { russian: 'трава', latin: 'trava', english: 'grass' },
     ],
   },
   {
@@ -47,6 +53,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'город', latin: 'gorod', english: 'city' },
       { russian: 'книга', latin: 'kniga', english: 'book' },
+      { russian: 'глаз', latin: 'glaz', english: 'eye' },
+      { russian: 'нога', latin: 'noga', english: 'leg' },
     ],
   },
   {
@@ -59,6 +67,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'дом', latin: 'dom', english: 'house' },
       { russian: 'вода', latin: 'voda', english: 'water' },
+      { russian: 'друг', latin: 'drug', english: 'friend' },
+      { russian: 'сад', latin: 'sad', english: 'garden' },
     ],
   },
   {
@@ -71,6 +81,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'еда', latin: 'yeda', english: 'food' },
       { russian: 'дерево', latin: 'derevo', english: 'tree' },
+      { russian: 'мел', latin: 'mel', english: 'chalk' },
+      { russian: 'лето', latin: 'leto', english: 'summer' },
     ],
   },
   {
@@ -83,6 +95,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'ёж', latin: 'yozh', english: 'hedgehog' },
       { russian: 'мёд', latin: 'myod', english: 'honey' },
+      { russian: 'ёлка', latin: 'yolka', english: 'fir tree' },
+      { russian: 'звёзды', latin: 'zvyozdy', english: 'stars' },
     ],
   },
   {
@@ -95,6 +109,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'жук', latin: 'zhuk', english: 'beetle' },
       { russian: 'лыжи', latin: 'lyzhi', english: 'skis' },
+      { russian: 'жара', latin: 'zhara', english: 'heat' },
+      { russian: 'нож', latin: 'nozh', english: 'knife' },
     ],
   },
   {
@@ -107,6 +123,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'зима', latin: 'zima', english: 'winter' },
       { russian: 'коза', latin: 'koza', english: 'goat' },
+      { russian: 'зонт', latin: 'zont', english: 'umbrella' },
+      { russian: 'глаза', latin: 'glaza', english: 'eyes' },
     ],
   },
   {
@@ -119,6 +137,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'игра', latin: 'igra', english: 'game' },
       { russian: 'книга', latin: 'kniga', english: 'book' },
+      { russian: 'имя', latin: 'imya', english: 'name' },
+      { russian: 'лиса', latin: 'lisa', english: 'fox' },
     ],
   },
   {
@@ -131,6 +151,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'чай', latin: 'chay', english: 'tea' },
       { russian: 'музей', latin: 'muzey', english: 'museum' },
+      { russian: 'мой', latin: 'moy', english: 'my' },
+      { russian: 'герой', latin: 'geroy', english: 'hero' },
     ],
   },
   {
@@ -143,6 +165,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'кот', latin: 'kot', english: 'cat' },
       { russian: 'рука', latin: 'ruka', english: 'hand' },
+      { russian: 'книга', latin: 'kniga', english: 'book' },
+      { russian: 'окно', latin: 'okno', english: 'window' },
     ],
   },
   {
@@ -155,6 +179,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'луна', latin: 'luna', english: 'moon' },
       { russian: 'стол', latin: 'stol', english: 'table' },
+      { russian: 'лес', latin: 'les', english: 'forest' },
+      { russian: 'молоко', latin: 'moloko', english: 'milk' },
     ],
   },
   {
@@ -167,6 +193,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'море', latin: 'more', english: 'sea' },
       { russian: 'мама', latin: 'mama', english: 'mother' },
+      { russian: 'мост', latin: 'most', english: 'bridge' },
+      { russian: 'зима', latin: 'zima', english: 'winter' },
     ],
   },
   {
@@ -179,6 +207,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'нос', latin: 'nos', english: 'nose' },
       { russian: 'окно', latin: 'okno', english: 'window' },
+      { russian: 'небо', latin: 'nebo', english: 'sky' },
+      { russian: 'луна', latin: 'luna', english: 'moon' },
     ],
   },
   {
@@ -191,6 +221,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'окно', latin: 'okno', english: 'window' },
       { russian: 'молоко', latin: 'moloko', english: 'milk' },
+      { russian: 'остров', latin: 'ostrov', english: 'island' },
+      { russian: 'море', latin: 'more', english: 'sea' },
     ],
   },
   {
@@ -203,6 +235,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'папа', latin: 'papa', english: 'father' },
       { russian: 'суп', latin: 'sup', english: 'soup' },
+      { russian: 'парк', latin: 'park', english: 'park' },
+      { russian: 'лампа', latin: 'lampa', english: 'lamp' },
     ],
   },
   {
@@ -215,6 +249,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'рыба', latin: 'ryba', english: 'fish' },
       { russian: 'гора', latin: 'gora', english: 'mountain' },
+      { russian: 'река', latin: 'reka', english: 'river' },
+      { russian: 'дверь', latin: "dver'", english: 'door' },
     ],
   },
   {
@@ -227,6 +263,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'сок', latin: 'sok', english: 'juice' },
       { russian: 'лес', latin: 'les', english: 'forest' },
+      { russian: 'снег', latin: 'sneg', english: 'snow' },
+      { russian: 'нос', latin: 'nos', english: 'nose' },
     ],
   },
   {
@@ -239,6 +277,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'торт', latin: 'tort', english: 'cake' },
       { russian: 'кот', latin: 'kot', english: 'cat' },
+      { russian: 'театр', latin: 'teatr', english: 'theater' },
+      { russian: 'утка', latin: 'utka', english: 'duck' },
     ],
   },
   {
@@ -251,6 +291,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'утка', latin: 'utka', english: 'duck' },
       { russian: 'суп', latin: 'sup', english: 'soup' },
+      { russian: 'утро', latin: 'utro', english: 'morning' },
+      { russian: 'луна', latin: 'luna', english: 'moon' },
     ],
   },
   {
@@ -263,6 +305,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'фото', latin: 'foto', english: 'photo' },
       { russian: 'шарф', latin: 'sharf', english: 'scarf' },
+      { russian: 'флаг', latin: 'flag', english: 'flag' },
+      { russian: 'кофе', latin: 'kofe', english: 'coffee' },
     ],
   },
   {
@@ -275,6 +319,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'хлеб', latin: 'khleb', english: 'bread' },
       { russian: 'ухо', latin: 'ukho', english: 'ear' },
+      { russian: 'холод', latin: 'kholod', english: 'cold' },
+      { russian: 'кухня', latin: 'kukhnya', english: 'kitchen' },
     ],
   },
   {
@@ -287,6 +333,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'цирк', latin: 'tsirk', english: 'circus' },
       { russian: 'улица', latin: 'ulitsa', english: 'street' },
+      { russian: 'цветок', latin: 'tsvetok', english: 'flower' },
+      { russian: 'яйцо', latin: 'yaytso', english: 'egg' },
     ],
   },
   {
@@ -299,6 +347,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'чай', latin: 'chay', english: 'tea' },
       { russian: 'ночь', latin: "noch'", english: 'night' },
+      { russian: 'часы', latin: 'chasy', english: 'clock' },
+      { russian: 'ключ', latin: 'klyuch', english: 'key' },
     ],
   },
   {
@@ -311,6 +361,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'школа', latin: 'shkola', english: 'school' },
       { russian: 'машина', latin: 'mashina', english: 'car' },
+      { russian: 'шар', latin: 'shar', english: 'ball' },
+      { russian: 'мышь', latin: "mysh'", english: 'mouse' },
     ],
   },
   {
@@ -323,6 +375,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'щука', latin: 'shchuka', english: 'pike' },
       { russian: 'овощи', latin: 'ovoshchi', english: 'vegetables' },
+      { russian: 'щётка', latin: 'shchyotka', english: 'brush' },
+      { russian: 'площадь', latin: "ploshchad'", english: 'square' },
     ],
   },
   {
@@ -335,6 +389,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'объект', latin: 'ob"yekt', english: 'object' },
       { russian: 'подъезд', latin: 'pod"yezd', english: 'entrance' },
+      { russian: 'съезд', latin: 's"yezd', english: 'congress' },
+      { russian: 'объявление', latin: 'ob"yavlenie', english: 'announcement' },
     ],
   },
   {
@@ -347,6 +403,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'сыр', latin: 'syr', english: 'cheese' },
       { russian: 'рыба', latin: 'ryba', english: 'fish' },
+      { russian: 'мы', latin: 'my', english: 'we' },
+      { russian: 'лыжи', latin: 'lyzhi', english: 'skis' },
     ],
   },
   {
@@ -359,6 +417,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'день', latin: "den'", english: 'day' },
       { russian: 'письмо', latin: "pis'mo", english: 'letter' },
+      { russian: 'мать', latin: "mat'", english: 'mother' },
+      { russian: 'дверь', latin: "dver'", english: 'door' },
     ],
   },
   {
@@ -371,6 +431,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'экран', latin: 'ekran', english: 'screen' },
       { russian: 'поэт', latin: 'poet', english: 'poet' },
+      { russian: 'это', latin: 'eto', english: 'this' },
+      { russian: 'этаж', latin: 'etazh', english: 'floor' },
     ],
   },
   {
@@ -383,6 +445,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'юбка', latin: 'yubka', english: 'skirt' },
       { russian: 'ключ', latin: 'klyuch', english: 'key' },
+      { russian: 'юг', latin: 'yug', english: 'south' },
+      { russian: 'союз', latin: 'soyuz', english: 'union' },
     ],
   },
   {
@@ -395,6 +459,8 @@ export const ALPHABET: CyrillicLetter[] = [
     examples: [
       { russian: 'яблоко', latin: 'yabloko', english: 'apple' },
       { russian: 'семья', latin: "sem'ya", english: 'family' },
+      { russian: 'язык', latin: 'yazyk', english: 'language' },
+      { russian: 'маяк', latin: 'mayak', english: 'lighthouse' },
     ],
   },
 ]

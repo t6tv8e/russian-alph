@@ -32,22 +32,33 @@ export function LetterCard({
         </h1>
 
         <div className="example-list" aria-label="Russian example words in uppercase">
-          {letter.examples.map((example) => (
-            <div className="example" key={example.russian}>
-              <span className="printed-word" lang="ru">
-                {example.russian.toLocaleUpperCase('ru')}
-              </span>
-              {revealTranslations ? (
-                <span className="word-details">
-                  <span className="word-latin">{example.latin}</span>
-                  <span className="word-separator" aria-hidden="true">·</span>
-                  <span className="word-translation">{example.english}</span>
+          {letter.examples.map((example) => {
+            const uppercaseWord = example.russian.toLocaleUpperCase('ru')
+
+            return (
+              <div className="example" key={example.russian}>
+                <span className="printed-word" lang="ru" aria-label={uppercaseWord}>
+                  {Array.from(uppercaseWord).map((character, index) => (
+                    <span
+                      className={character === letter.uppercase ? 'target-character' : undefined}
+                      key={`${character}-${index}`}
+                    >
+                      {character}
+                    </span>
+                  ))}
                 </span>
-              ) : (
-                <span className="translation-placeholder" aria-hidden="true">transliteration and translation after answer</span>
-              )}
-            </div>
-          ))}
+                {revealTranslations ? (
+                  <span className="word-details">
+                    <span className="word-latin">{example.latin}</span>
+                    <span className="word-separator" aria-hidden="true">·</span>
+                    <span className="word-translation">{example.english}</span>
+                  </span>
+                ) : (
+                  <span className="translation-placeholder" aria-hidden="true">transliteration and translation after answer</span>
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
 

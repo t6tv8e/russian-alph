@@ -15,8 +15,9 @@ describe('Cyrillic lesson', () => {
     const user = userEvent.setup()
     render(<App />)
 
-    expect(screen.getByRole('heading', { name: 'Cyrillic letter А' })).toBeTruthy()
-    expect(screen.getByText('АРБУЗ')).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Cyrillic letter А' })).toHaveClass('cyrillic-letter')
+    expect(screen.getByLabelText('АРБУЗ')).toBeTruthy()
+    expect(screen.getByLabelText('ПАРК')).toBeTruthy()
     expect(screen.queryByText('арбуз')).toBeNull()
     expect(screen.queryByText('arbuz')).toBeNull()
     expect(screen.queryByText('watermelon')).toBeNull()
