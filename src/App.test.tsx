@@ -30,6 +30,24 @@ describe('Cyrillic lesson', () => {
     expect(screen.getByText('mother')).toBeTruthy()
   })
 
+  it('opens a separate progress screen with every letter and preserves the lesson', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: 'Choose a' }))
+    await user.click(screen.getByRole('button', { name: 'View detailed progress' }))
+
+    expect(screen.getByRole('heading', { name: 'Your Cyrillic progress' })).toBeTruthy()
+    expect(screen.getAllByRole('listitem')).toHaveLength(33)
+    expect(
+      screen.getByRole('listitem', { name: 'А: Learning, level 1 of 5' }),
+    ).toBeTruthy()
+
+    await user.click(screen.getByRole('button', { name: 'Back to lesson' }))
+    expect(screen.getByRole('heading', { name: 'Cyrillic letter А' })).toBeTruthy()
+    expect(screen.getByText('Exactly right!')).toBeTruthy()
+  })
+
   it('selects multiple-choice answers with the A–D keyboard shortcuts', async () => {
     const user = userEvent.setup()
     render(<App />)

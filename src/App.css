@@ -28,6 +28,14 @@
   text-decoration: none;
 }
 
+.brand-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
 .brand-mark {
   width: 46px;
   height: 46px;
@@ -60,8 +68,14 @@
   letter-spacing: 0.15px;
 }
 
+.header-progress {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .progress-summary {
-  width: min(360px, 42vw);
+  width: min(330px, 36vw);
 }
 
 .progress-copy {
@@ -92,6 +106,33 @@
   border-radius: inherit;
   background: linear-gradient(90deg, var(--teal), #4da696);
   transition: width 350ms ease;
+}
+
+.progress-nav-button {
+  min-height: 42px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid rgba(17, 124, 121, 0.28);
+  border-radius: 11px;
+  color: var(--teal-dark);
+  background: var(--teal-pale);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+  transition: border-color 150ms ease, background 150ms ease, transform 120ms ease;
+}
+
+.progress-nav-button:hover {
+  border-color: var(--teal);
+  background: #d4ebe7;
+  transform: translateY(-1px);
+}
+
+.progress-nav-icon {
+  font-size: 15px;
 }
 
 .lesson-layout {
@@ -495,6 +536,257 @@
   color: #3e5559;
 }
 
+.progress-layout {
+  width: 100%;
+  margin: 0 auto;
+  padding: 44px 0 48px;
+}
+
+.progress-screen {
+  width: 100%;
+}
+
+.progress-screen-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.progress-screen-heading h1 {
+  margin: 6px 0 8px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 5vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -1.2px;
+}
+
+.progress-screen-heading p:not(.section-kicker) {
+  max-width: 600px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.back-to-lesson {
+  min-height: 44px;
+  padding: 0 17px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  color: var(--ink);
+  background: var(--paper);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.back-to-lesson:hover {
+  border-color: var(--teal);
+  color: var(--teal-dark);
+}
+
+.progress-overview {
+  margin: 30px 0 38px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid rgba(24, 51, 59, 0.14);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: 0 12px 35px rgba(43, 57, 52, 0.06);
+}
+
+.overview-stat {
+  min-width: 0;
+  padding: 23px 24px;
+}
+
+.overview-stat + .overview-stat {
+  border-left: 1px solid var(--line);
+}
+
+.overview-stat strong,
+.overview-stat span {
+  display: block;
+}
+
+.overview-stat strong {
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.overview-stat--primary strong {
+  color: var(--teal);
+}
+
+.overview-stat span {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.45px;
+  text-transform: uppercase;
+}
+
+.alphabet-progress-heading {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.alphabet-progress-heading h2 {
+  margin: 0 0 3px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+}
+
+.alphabet-progress-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.progress-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.progress-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.legend-dot--recall {
+  background: var(--teal);
+}
+
+.legend-dot--mastered {
+  background: var(--success);
+}
+
+.alphabet-progress-grid {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  list-style: none;
+}
+
+.progress-letter-card {
+  min-width: 0;
+  min-height: 137px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dde1dc;
+  border-radius: 14px;
+  background: rgba(255, 254, 249, 0.8);
+}
+
+.progress-letter-card--level-1,
+.progress-letter-card--level-2 {
+  border-color: rgba(233, 185, 73, 0.5);
+  background: #fffbef;
+}
+
+.progress-letter-card--level-3,
+.progress-letter-card--level-4 {
+  border-color: rgba(17, 124, 121, 0.28);
+  background: #f3faf8;
+}
+
+.progress-letter-card--level-5 {
+  border-color: rgba(36, 116, 93, 0.38);
+  background: var(--success-pale);
+}
+
+.progress-letter-topline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 7px;
+}
+
+.progress-letter-topline strong {
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 35px;
+  line-height: 1;
+}
+
+.progress-letter-card--level-3 .progress-letter-topline strong,
+.progress-letter-card--level-4 .progress-letter-topline strong,
+.progress-letter-card--level-5 .progress-letter-topline strong {
+  color: var(--teal);
+}
+
+.progress-letter-topline span {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 750;
+  text-align: right;
+  text-overflow: ellipsis;
+}
+
+.letter-status {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.65px;
+  text-transform: uppercase;
+}
+
+.letter-level-meter {
+  margin: auto 0 8px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.level-step {
+  height: 5px;
+  border-radius: 999px;
+  background: #dfe3df;
+}
+
+.level-step--filled {
+  background: var(--teal);
+}
+
+.progress-letter-card small {
+  overflow: hidden;
+  color: #7e8b8d;
+  font-size: 9px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .complete-card {
   padding: 58px 46px 48px;
   text-align: center;
@@ -639,13 +931,27 @@
     font-size: 17px;
   }
 
+  .header-progress {
+    gap: 8px;
+  }
+
   .progress-summary {
-    width: 135px;
+    width: 130px;
   }
 
   .progress-copy {
     justify-content: flex-end;
     font-size: 10px;
+  }
+
+  .progress-nav-button {
+    width: 42px;
+    min-height: 40px;
+    padding: 0;
+  }
+
+  .progress-nav-label {
+    display: none;
   }
 
   .lesson-layout {
@@ -748,6 +1054,74 @@
     display: block;
   }
 
+  .progress-layout {
+    padding: 27px 0 35px;
+  }
+
+  .progress-screen-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .progress-screen-heading h1 {
+    font-size: 36px;
+  }
+
+  .progress-overview {
+    margin: 24px 0 30px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .overview-stat {
+    padding: 18px 16px;
+  }
+
+  .overview-stat + .overview-stat {
+    border-left: 0;
+  }
+
+  .overview-stat:nth-child(even) {
+    border-left: 1px solid var(--line);
+  }
+
+  .overview-stat:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+
+  .overview-stat strong {
+    font-size: 25px;
+  }
+
+  .alphabet-progress-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .progress-legend {
+    justify-content: flex-start;
+  }
+
+  .alphabet-progress-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .progress-letter-card {
+    min-height: 127px;
+    padding: 11px;
+  }
+
+  .progress-letter-topline strong {
+    font-size: 30px;
+  }
+
+  .progress-letter-topline span,
+  .progress-letter-card small {
+    font-size: 8px;
+  }
+
   .complete-card {
     padding: 44px 20px 36px;
   }
@@ -764,6 +1138,20 @@
     flex-wrap: wrap;
     gap: 8px 13px;
     padding: 15px;
+  }
+}
+
+@media (max-width: 470px) {
+  .app-header {
+    gap: 12px;
+  }
+
+  .brand-copy {
+    display: none;
+  }
+
+  .progress-summary {
+    width: 125px;
   }
 }
 

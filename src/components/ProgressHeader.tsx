@@ -8,37 +8,64 @@ import type { LearningProgress } from '../learning/types'
 
 interface ProgressHeaderProps {
   progress: LearningProgress
+  activeView: 'lesson' | 'progress'
+  onShowLesson: () => void
+  onShowProgress: () => void
 }
 
-export function ProgressHeader({ progress }: ProgressHeaderProps) {
+export function ProgressHeader({
+  progress,
+  activeView,
+  onShowLesson,
+  onShowProgress,
+}: ProgressHeaderProps) {
   const overallProgress = getOverallProgress(progress)
   const masteredCount = getMasteredCount(progress)
   const stats = getSessionStats(progress)
+  const showingProgress = activeView === 'progress'
 
   return (
     <header className="app-header">
-      <a className="brand" href="#lesson" aria-label="Быстро Буквы home">
+      <button
+        className="brand brand-button"
+        type="button"
+        onClick={onShowLesson}
+        aria-label="Быстро Буквы home"
+      >
         <span className="brand-mark" aria-hidden="true">Я</span>
-        <span>
+        <span className="brand-copy">
           <strong>Быстро Буквы</strong>
           <small>Cyrillic, one letter at a time</small>
         </span>
-      </a>
+      </button>
 
-      <div className="progress-summary" aria-label={`${overallProgress}% alphabet knowledge`}>
-        <div className="progress-copy">
-          <span><strong>{masteredCount}</strong> of {ALPHABET.length} mastered</span>
-          <span>{stats.attempts > 0 ? `${stats.accuracy}% accuracy` : 'Ready to begin'}</span>
+      <div className="header-progress">
+        <div className="progress-summary" aria-label={`${overallProgress}% alphabet knowledge`}>
+          <div className="progress-copy">
+            <span><strong>{masteredCount}</strong> of {ALPHABET.length} mastered</span>
+            <span>{stats.attempts > 0 ? `${stats.accuracy}% accuracy` : 'Ready to begin'}</span>
+          </div>
+          <div
+            className="progress-track"
+            role="progressbar"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={overallProgress}
+          >
+            <span className="progress-fill" style={{ width: `${overallProgress}%` }} />
+          </div>
         </div>
-        <div
-          className="progress-track"
-          role="progressbar"
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-valuenow={overallProgress}
+
+        <button
+          className="progress-nav-button"
+          type="button"
+          onClick={showingProgress ? onShowLesson : onShowProgress}
+          aria-label={showingProgress ? 'Return to lesson' : 'View detailed progress'}
+          aria-current={showingProgress ? 'page' : undefined}
         >
-          <span className="progress-fill" style={{ width: `${overallProgress}%` }} />
-        </div>
+          <span className="progress-nav-icon" aria-hidden="true">{showingProgress ? '←' : '◎'}</span>
+          <span className="progress-nav-label">{showingProgress ? 'Lesson' : 'Progress'}</span>
+        </button>
       </div>
     </header>
   )
