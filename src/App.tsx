@@ -1,79 +1,155 @@
 import { useState } from 'react'
 import './styles/app.css'
-import { ProgressHeader } from './components/layout/ProgressHeader'
+import { GameHome } from './components/games/GameHome'
+import { ListenPickGame } from './components/listening'
+import {
+  ProgressHeader,
+  type AppSection,
+  type HeaderProgressSummary,
+} from './components/layout/ProgressHeader'
 import { FeedbackPanel } from './components/lesson/FeedbackPanel'
 import { LetterCard } from './components/lesson/LetterCard'
 import { MultipleChoice } from './components/lesson/MultipleChoice'
 import { SessionComplete } from './components/lesson/SessionComplete'
 import { TypedAnswer } from './components/lesson/TypedAnswer'
 import { ProgressScreen } from './components/progress/ProgressScreen'
+import { WordMatchGame } from './components/vocabulary/WordMatchGame'
+import { ALPHABET } from './data/alphabet'
+import { VOCABULARY } from './data/vocabulary'
 import { useLearningSession } from './hooks/useLearningSession'
 import { useTheme } from './hooks/useTheme'
-
-type AppView = 'lesson' | 'progress'
+import { useVocabularySession } from './hooks/useVocabularySession'
+import {
+  getMasteredCount,
+  getOverallProgress,
+  getSessionStats,
+} from './learning/scheduler'
+import {
+  getVocabularyMasteredCount,
+  getVocabularyOverallProgress,
+  getVocabularyStats,
+} from './learning/vocabulary'
 
 function App() {
-  const session = useLearningSession()
+  const alphabetSession = useLearningSession()
+  const vocabularySession = useVocabularySession()
   const { theme, toggleTheme } = useTheme()
-  const [activeView, setActiveView] = useState<AppView>('lesson')
-  const revealed = session.phase === 'feedback'
+  const [activeView, setActiveView] = useState<AppSection>('games')
+  const revealed = alphabetSession.phase === 'feedback'
 
-  const handleReset = () => {
-    if (window.confirm('Reset all Cyrillic learning progress? This cannot be undone.')) {
-      session.resetSession()
+  const alphabetOverall = getOverallProgress(alphabetSession.progress)
+  const alphabetMastered = getMasteredCount(alphabetSession.progress)
+  const alphabetStats = getSessionStats(alphabetSession.progress)
+  const vocabularyOverall = getVocabularyOverallProgress(vocabularySession.progress)
+  const vocabularyMastered = getVocabularyMasteredCount(vocabularySession.progress)
+  const vocabularyStats = getVocabularyStats(vocabularySession.progress)
+
+  let headerSummary: HeaderProgressSummary | null = null
+  if (activeView === 'alphabet' || activeView === 'progress') {
+    headerSummary = {
+      value: alphabetOverall,
+      label: `${alphabetMastered} of ${ALPHABET.length} mastered`,
+      detail: alphabetStats.attempts > 0
+        ? `${alphabetStats.accuracy}% accuracy`
+        : 'Ready to begin',
+      ariaLabel: `${alphabetOverall}% alphabet knowledge`,
+    }
+  } else if (activeView === 'words') {
+    headerSummary = {
+      value: vocabularyOverall,
+      label: `${vocabularyMastered} of ${VOCABULARY.length} mastered`,
+      detail: vocabularyStats.attempts > 0
+        ? `${vocabularyStats.accuracy}% accuracy`
+        : 'Ready to begin',
+      ariaLabel: `${vocabularyOverall}% vocabulary knowledge`,
     }
   }
+
+  const handleReset = () => {
+    if (activeView === 'words') {
+      if (window.confirm('Reset all Word Match progress? This cannot be undone.')) {
+        vocabularySession.resetSession()
+      }
+      return
+    }
+
+    if (window.confirm('Reset all Cyrillic learning progress? This cannot be undone.')) {
+      alphabetSession.resetSession()
+    }
+  }
+
+  const showReset = activeView === 'alphabet' || activeView === 'progress' || activeView === 'words'
 
   return (
     <div className="app-shell">
       <ProgressHeader
-        progress={session.progress}
+        summary={headerSummary}
         activeView={activeView}
-        onShowLesson={() => setActiveView('lesson')}
+        onShowGames={() => setActiveView('games')}
+        onShowAlphabet={() => setActiveView('alphabet')}
         onShowProgress={() => setActiveView('progress')}
         theme={theme}
         onToggleTheme={toggleTheme}
       />
 
-      {activeView === 'progress' ? (
+      {activeView === 'games' ? (
+        <GameHome
+          alphabetProgress={alphabetSession.progress}
+          vocabularyProgress={vocabularySession.progress}
+          onPlayAlphabet={() => setActiveView('alphabet')}
+          onPlayWordMatch={() => setActiveView('words')}
+          onPlayListenPick={() => setActiveView('listening')}
+        />
+      ) : activeView === 'progress' ? (
         <main className="progress-layout" id="progress">
           <ProgressScreen
-            progress={session.progress}
-            onBack={() => setActiveView('lesson')}
+            progress={alphabetSession.progress}
+            onBack={() => setActiveView('alphabet')}
           />
+        </main>
+      ) : activeView === 'words' ? (
+        <main className="game-layout" id="word-match">
+          <WordMatchGame
+            session={vocabularySession}
+            onExit={() => setActiveView('games')}
+          />
+        </main>
+      ) : activeView === 'listening' ? (
+        <main id="listen-pick">
+          <ListenPickGame onExit={() => setActiveView('games')} />
         </main>
       ) : (
         <main className="lesson-layout" id="lesson">
-          {session.currentLetter && session.currentProgress ? (
+          {alphabetSession.currentLetter && alphabetSession.currentProgress ? (
             <>
               <LetterCard
-                letter={session.currentLetter}
-                mode={session.answerMode}
-                level={session.currentProgress.level}
+                letter={alphabetSession.currentLetter}
+                mode={alphabetSession.answerMode}
+                level={alphabetSession.currentProgress.level}
                 revealTranslations={revealed}
               >
-                {session.answerMode === 'choice' ? (
+                {alphabetSession.answerMode === 'choice' ? (
                   <MultipleChoice
-                    choices={session.choices}
-                    correctLetterId={session.currentLetter.id}
-                    selectedChoiceId={session.selectedChoiceId}
+                    choices={alphabetSession.choices}
+                    correctLetterId={alphabetSession.currentLetter.id}
+                    selectedChoiceId={alphabetSession.selectedChoiceId}
                     revealed={revealed}
-                    onChoose={session.chooseAnswer}
+                    onChoose={alphabetSession.chooseAnswer}
                   />
                 ) : (
                   <TypedAnswer
-                    value={session.typedAnswer}
+                    value={alphabetSession.typedAnswer}
                     revealed={revealed}
-                    onChange={session.setTypedAnswer}
-                    onConfirm={session.confirmTypedAnswer}
+                    onChange={alphabetSession.setTypedAnswer}
+                    onConfirm={alphabetSession.confirmTypedAnswer}
                   />
                 )}
 
-                {session.result ? (
+                {alphabetSession.result ? (
                   <FeedbackPanel
-                    result={session.result}
-                    letter={session.currentLetter}
-                    onContinue={session.continueSession}
+                    result={alphabetSession.result}
+                    letter={alphabetSession.currentLetter}
+                    onContinue={alphabetSession.continueSession}
                   />
                 ) : null}
               </LetterCard>
@@ -87,14 +163,21 @@ function App() {
               </aside>
             </>
           ) : (
-            <SessionComplete progress={session.progress} onPractice={session.startPractice} />
+            <SessionComplete
+              progress={alphabetSession.progress}
+              onPractice={alphabetSession.startPractice}
+            />
           )}
         </main>
       )}
 
       <footer className="app-footer">
         <span>Progress is saved on this device.</span>
-        <button type="button" onClick={handleReset}>Reset progress</button>
+        {showReset ? (
+          <button type="button" onClick={handleReset}>
+            Reset {activeView === 'words' ? 'word' : 'alphabet'} progress
+          </button>
+        ) : null}
       </footer>
     </div>
   )

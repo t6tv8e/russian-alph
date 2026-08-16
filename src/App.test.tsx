@@ -3,13 +3,19 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from './App'
 import { ALPHABET } from './data/alphabet'
+import { VOCABULARY } from './data/vocabulary'
+import { LISTENING_STORAGE_KEY } from './hooks/useListeningSession'
 import { STORAGE_KEY } from './hooks/useStoredProgress'
+import { VOCABULARY_STORAGE_KEY } from './hooks/useStoredVocabularyProgress'
 import { THEME_STORAGE_KEY } from './hooks/useTheme'
 import { createLearningProgress } from './learning/scheduler'
+import { createVocabularyProgress } from './learning/vocabulary'
 
-describe('Cyrillic lesson', () => {
+describe('language games', () => {
   beforeEach(() => {
     window.localStorage.removeItem(STORAGE_KEY)
+    window.localStorage.removeItem(LISTENING_STORAGE_KEY)
+    window.localStorage.removeItem(VOCABULARY_STORAGE_KEY)
     window.localStorage.removeItem(THEME_STORAGE_KEY)
     delete document.documentElement.dataset.theme
   })
@@ -18,9 +24,70 @@ describe('Cyrillic lesson', () => {
     vi.unstubAllGlobals()
   })
 
-  it('grades a choice immediately and reveals word translations', async () => {
+  async function openAlphabet(user: ReturnType<typeof userEvent.setup>) {
+    await user.click(screen.getByRole('button', { name: 'Play Alphabet Trainer' }))
+  }
+
+  it('starts on a game home screen and opens Word Match', async () => {
     const user = userEvent.setup()
     render(<App />)
+
+    expect(screen.getByRole('heading', { name: 'What do you want to train?' })).toBeTruthy()
+    expect(screen.getByRole('button', { name: 'Play Alphabet Trainer' })).toBeTruthy()
+    expect(screen.getByRole('button', { name: 'Play Listen & Pick' })).toBeTruthy()
+
+    await user.click(screen.getByRole('button', { name: 'Play Word Match' }))
+
+    expect(screen.getByRole('heading', { name: 'Word Match' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Russian word мама' })).toBeTruthy()
+    expect(screen.queryByText('mama')).toBeNull()
+
+    await user.click(screen.getByRole('button', { name: 'Choose mother' }))
+
+    expect(screen.getByText('Exactly right!')).toBeTruthy()
+    expect(screen.getByRole('status')).toHaveTextContent('mama means mother')
+  })
+
+  it('opens Listen & Pick from the game home screen', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: 'Play Listen & Pick' }))
+
+    expect(screen.getByRole('heading', { name: 'Listen & Pick' })).toBeTruthy()
+    expect(screen.getByRole('button', { name: 'Continue with visual practice' })).toBeTruthy()
+    expect(screen.getByRole('button', { name: 'Choose Cyrillic letter А' })).toBeDisabled()
+  })
+
+  it('graduates Word Match to typed meaning recall', async () => {
+    const user = userEvent.setup()
+    const stored = createVocabularyProgress(VOCABULARY)
+    stored.words.mama = {
+      ...stored.words.mama,
+      level: 3,
+      choiceCorrectCount: 3,
+      typingUnlocked: true,
+      attempts: 3,
+      correctAttempts: 3,
+      nextDueAt: 0,
+      lastResult: 'incorrect',
+    }
+    window.localStorage.setItem(VOCABULARY_STORAGE_KEY, JSON.stringify(stored))
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: 'Play Word Match' }))
+    const input = screen.getByLabelText('Type the English meaning')
+    await user.type(input, 'mum')
+    await user.click(screen.getByRole('button', { name: 'Confirm' }))
+
+    expect(screen.getByText('Exactly right!')).toBeTruthy()
+    expect(screen.getByRole('status')).toHaveTextContent('mama means mother')
+  })
+
+  it('grades an alphabet choice immediately and reveals word translations', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    await openAlphabet(user)
 
     expect(screen.getByRole('heading', { name: 'Cyrillic letter А' })).toHaveClass('cyrillic-letter')
     expect(screen.getByText('Like a in father.')).toBeTruthy()
@@ -67,6 +134,7 @@ describe('Cyrillic lesson', () => {
     vi.stubGlobal('speechSynthesis', speechSynthesis)
     vi.stubGlobal('SpeechSynthesisUtterance', TestUtterance)
     render(<App />)
+    await openAlphabet(user)
 
     await user.click(screen.getByRole('button', { name: 'Play the Russian name of А' }))
 
@@ -88,6 +156,7 @@ describe('Cyrillic lesson', () => {
   it('opens a separate progress screen with every letter and preserves the lesson', async () => {
     const user = userEvent.setup()
     render(<App />)
+    await openAlphabet(user)
 
     await user.click(screen.getByRole('button', { name: 'Choose a' }))
     await user.click(screen.getByRole('button', { name: 'View detailed progress' }))
@@ -106,6 +175,7 @@ describe('Cyrillic lesson', () => {
   it('selects multiple-choice answers with the A–D keyboard shortcuts', async () => {
     const user = userEvent.setup()
     render(<App />)
+    await openAlphabet(user)
 
     const correctChoice = screen.getByRole('button', { name: 'Choose a' })
     const shortcut = correctChoice.getAttribute('aria-keyshortcuts')
@@ -119,6 +189,7 @@ describe('Cyrillic lesson', () => {
   it('reveals the expected transliteration after a mistake', async () => {
     const user = userEvent.setup()
     render(<App />)
+    await openAlphabet(user)
 
     await user.click(screen.getByRole('button', { name: 'Choose o' }))
 
@@ -129,6 +200,7 @@ describe('Cyrillic lesson', () => {
   it('moves to another letter only after Continue', async () => {
     const user = userEvent.setup()
     render(<App />)
+    await openAlphabet(user)
 
     await user.click(screen.getByRole('button', { name: 'Choose a' }))
     expect(screen.getByRole('heading', { name: 'Cyrillic letter А' })).toBeTruthy()
@@ -151,6 +223,7 @@ describe('Cyrillic lesson', () => {
     }
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(stored))
     render(<App />)
+    await openAlphabet(user)
 
     await user.click(screen.getByRole('button', { name: 'Choose a' }))
 
@@ -183,6 +256,7 @@ describe('Cyrillic lesson', () => {
     }
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(stored))
     render(<App />)
+    await openAlphabet(user)
 
     const input = screen.getByLabelText('Type the Latin equivalent')
     expect(input).toHaveFocus()
