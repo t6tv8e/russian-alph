@@ -36,9 +36,13 @@ export function LetterCard({
             <div className="example" key={example.russian}>
               <span className="russian-word" lang="ru">{example.russian}</span>
               {revealTranslations ? (
-                <span className="word-translation">{example.english}</span>
+                <span className="word-details">
+                  <span className="word-latin">{example.latin}</span>
+                  <span className="word-separator" aria-hidden="true">·</span>
+                  <span className="word-translation">{example.english}</span>
+                </span>
               ) : (
-                <span className="translation-placeholder" aria-hidden="true">translation after answer</span>
+                <span className="translation-placeholder" aria-hidden="true">transliteration and translation after answer</span>
               )}
             </div>
           ))}

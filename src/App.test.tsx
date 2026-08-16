@@ -16,11 +16,13 @@ describe('Cyrillic lesson', () => {
     render(<App />)
 
     expect(screen.getByRole('heading', { name: 'Cyrillic letter А' })).toBeTruthy()
+    expect(screen.queryByText('arbuz')).toBeNull()
     expect(screen.queryByText('watermelon')).toBeNull()
 
     await user.click(screen.getByRole('button', { name: 'Choose a' }))
 
     expect(screen.getByText('Exactly right!')).toBeTruthy()
+    expect(screen.getByText('arbuz')).toBeTruthy()
     expect(screen.getByText('watermelon')).toBeTruthy()
     expect(screen.getByText('mother')).toBeTruthy()
   })

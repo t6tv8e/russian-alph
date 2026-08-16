@@ -1,5 +1,6 @@
 export interface WordExample {
   russian: string
+  latin: string
   english: string
 }
 

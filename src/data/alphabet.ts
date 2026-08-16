@@ -9,8 +9,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['a'],
     distractorIds: ['o', 'ya', 'ye'],
     examples: [
-      { russian: 'арбуз', english: 'watermelon' },
-      { russian: 'мама', english: 'mother' },
+      { russian: 'арбуз', latin: 'arbuz', english: 'watermelon' },
+      { russian: 'мама', latin: 'mama', english: 'mother' },
     ],
   },
   {
@@ -21,8 +21,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['b'],
     distractorIds: ['ve', 'pe', 'de'],
     examples: [
-      { russian: 'бабушка', english: 'grandmother' },
-      { russian: 'хлеб', english: 'bread' },
+      { russian: 'бабушка', latin: 'babushka', english: 'grandmother' },
+      { russian: 'хлеб', latin: 'khleb', english: 'bread' },
     ],
   },
   {
@@ -33,8 +33,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['v', 'w'],
     distractorIds: ['be', 'ef', 'ge'],
     examples: [
-      { russian: 'вода', english: 'water' },
-      { russian: 'сова', english: 'owl' },
+      { russian: 'вода', latin: 'voda', english: 'water' },
+      { russian: 'сова', latin: 'sova', english: 'owl' },
     ],
   },
   {
@@ -45,8 +45,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['g'],
     distractorIds: ['de', 'ka', 'er'],
     examples: [
-      { russian: 'город', english: 'city' },
-      { russian: 'книга', english: 'book' },
+      { russian: 'город', latin: 'gorod', english: 'city' },
+      { russian: 'книга', latin: 'kniga', english: 'book' },
     ],
   },
   {
@@ -57,8 +57,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['d'],
     distractorIds: ['ge', 'te', 'el'],
     examples: [
-      { russian: 'дом', english: 'house' },
-      { russian: 'вода', english: 'water' },
+      { russian: 'дом', latin: 'dom', english: 'house' },
+      { russian: 'вода', latin: 'voda', english: 'water' },
     ],
   },
   {
@@ -69,8 +69,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['ye', 'e', 'je'],
     distractorIds: ['e', 'yo', 'ya'],
     examples: [
-      { russian: 'еда', english: 'food' },
-      { russian: 'дерево', english: 'tree' },
+      { russian: 'еда', latin: 'yeda', english: 'food' },
+      { russian: 'дерево', latin: 'derevo', english: 'tree' },
     ],
   },
   {
@@ -81,8 +81,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['yo', 'jo', 'ë'],
     distractorIds: ['ye', 'yu', 'o'],
     examples: [
-      { russian: 'ёж', english: 'hedgehog' },
-      { russian: 'мёд', english: 'honey' },
+      { russian: 'ёж', latin: 'yozh', english: 'hedgehog' },
+      { russian: 'мёд', latin: 'myod', english: 'honey' },
     ],
   },
   {
@@ -93,8 +93,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['zh', 'ž'],
     distractorIds: ['ze', 'sha', 'che'],
     examples: [
-      { russian: 'жук', english: 'beetle' },
-      { russian: 'лыжи', english: 'skis' },
+      { russian: 'жук', latin: 'zhuk', english: 'beetle' },
+      { russian: 'лыжи', latin: 'lyzhi', english: 'skis' },
     ],
   },
   {
@@ -105,8 +105,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['z'],
     distractorIds: ['es', 'zhe', 'tse'],
     examples: [
-      { russian: 'зима', english: 'winter' },
-      { russian: 'коза', english: 'goat' },
+      { russian: 'зима', latin: 'zima', english: 'winter' },
+      { russian: 'коза', latin: 'koza', english: 'goat' },
     ],
   },
   {
@@ -117,8 +117,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['i', 'ee'],
     distractorIds: ['short-i', 'yery', 'e'],
     examples: [
-      { russian: 'игра', english: 'game' },
-      { russian: 'книга', english: 'book' },
+      { russian: 'игра', latin: 'igra', english: 'game' },
+      { russian: 'книга', latin: 'kniga', english: 'book' },
     ],
   },
   {
@@ -129,8 +129,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['y', 'j', 'short i', 'shorti'],
     distractorIds: ['i', 'yery', 'u'],
     examples: [
-      { russian: 'чай', english: 'tea' },
-      { russian: 'музей', english: 'museum' },
+      { russian: 'чай', latin: 'chay', english: 'tea' },
+      { russian: 'музей', latin: 'muzey', english: 'museum' },
     ],
   },
   {
@@ -141,8 +141,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['k'],
     distractorIds: ['ge', 'kha', 'el'],
     examples: [
-      { russian: 'кот', english: 'cat' },
-      { russian: 'рука', english: 'hand' },
+      { russian: 'кот', latin: 'kot', english: 'cat' },
+      { russian: 'рука', latin: 'ruka', english: 'hand' },
     ],
   },
   {
@@ -153,8 +153,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['l'],
     distractorIds: ['er', 'pe', 'de'],
     examples: [
-      { russian: 'луна', english: 'moon' },
-      { russian: 'стол', english: 'table' },
+      { russian: 'луна', latin: 'luna', english: 'moon' },
+      { russian: 'стол', latin: 'stol', english: 'table' },
     ],
   },
   {
@@ -165,8 +165,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['m'],
     distractorIds: ['en', 'el', 'i'],
     examples: [
-      { russian: 'море', english: 'sea' },
-      { russian: 'мама', english: 'mother' },
+      { russian: 'море', latin: 'more', english: 'sea' },
+      { russian: 'мама', latin: 'mama', english: 'mother' },
     ],
   },
   {
@@ -177,8 +177,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['n'],
     distractorIds: ['em', 'pe', 'ka'],
     examples: [
-      { russian: 'нос', english: 'nose' },
-      { russian: 'окно', english: 'window' },
+      { russian: 'нос', latin: 'nos', english: 'nose' },
+      { russian: 'окно', latin: 'okno', english: 'window' },
     ],
   },
   {
@@ -189,8 +189,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['o'],
     distractorIds: ['a', 'u', 'yo'],
     examples: [
-      { russian: 'окно', english: 'window' },
-      { russian: 'молоко', english: 'milk' },
+      { russian: 'окно', latin: 'okno', english: 'window' },
+      { russian: 'молоко', latin: 'moloko', english: 'milk' },
     ],
   },
   {
@@ -201,8 +201,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['p'],
     distractorIds: ['be', 'te', 'ef'],
     examples: [
-      { russian: 'папа', english: 'father' },
-      { russian: 'суп', english: 'soup' },
+      { russian: 'папа', latin: 'papa', english: 'father' },
+      { russian: 'суп', latin: 'sup', english: 'soup' },
     ],
   },
   {
@@ -213,8 +213,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['r'],
     distractorIds: ['el', 'pe', 'ge'],
     examples: [
-      { russian: 'рыба', english: 'fish' },
-      { russian: 'гора', english: 'mountain' },
+      { russian: 'рыба', latin: 'ryba', english: 'fish' },
+      { russian: 'гора', latin: 'gora', english: 'mountain' },
     ],
   },
   {
@@ -225,8 +225,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['s'],
     distractorIds: ['ze', 'tse', 'sha'],
     examples: [
-      { russian: 'сок', english: 'juice' },
-      { russian: 'лес', english: 'forest' },
+      { russian: 'сок', latin: 'sok', english: 'juice' },
+      { russian: 'лес', latin: 'les', english: 'forest' },
     ],
   },
   {
@@ -237,8 +237,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['t'],
     distractorIds: ['de', 'pe', 'ge'],
     examples: [
-      { russian: 'торт', english: 'cake' },
-      { russian: 'кот', english: 'cat' },
+      { russian: 'торт', latin: 'tort', english: 'cake' },
+      { russian: 'кот', latin: 'kot', english: 'cat' },
     ],
   },
   {
@@ -249,8 +249,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['u', 'oo'],
     distractorIds: ['yery', 'yu', 'o'],
     examples: [
-      { russian: 'утка', english: 'duck' },
-      { russian: 'суп', english: 'soup' },
+      { russian: 'утка', latin: 'utka', english: 'duck' },
+      { russian: 'суп', latin: 'sup', english: 'soup' },
     ],
   },
   {
@@ -261,8 +261,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['f', 'ph'],
     distractorIds: ['pe', 've', 'kha'],
     examples: [
-      { russian: 'фото', english: 'photo' },
-      { russian: 'шарф', english: 'scarf' },
+      { russian: 'фото', latin: 'foto', english: 'photo' },
+      { russian: 'шарф', latin: 'sharf', english: 'scarf' },
     ],
   },
   {
@@ -273,8 +273,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['kh', 'h', 'x'],
     distractorIds: ['ka', 'ge', 'sha'],
     examples: [
-      { russian: 'хлеб', english: 'bread' },
-      { russian: 'ухо', english: 'ear' },
+      { russian: 'хлеб', latin: 'khleb', english: 'bread' },
+      { russian: 'ухо', latin: 'ukho', english: 'ear' },
     ],
   },
   {
@@ -285,8 +285,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['ts'],
     distractorIds: ['es', 'che', 'sha'],
     examples: [
-      { russian: 'цирк', english: 'circus' },
-      { russian: 'улица', english: 'street' },
+      { russian: 'цирк', latin: 'tsirk', english: 'circus' },
+      { russian: 'улица', latin: 'ulitsa', english: 'street' },
     ],
   },
   {
@@ -297,8 +297,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['ch', 'č'],
     distractorIds: ['tse', 'sha', 'shcha'],
     examples: [
-      { russian: 'чай', english: 'tea' },
-      { russian: 'ночь', english: 'night' },
+      { russian: 'чай', latin: 'chay', english: 'tea' },
+      { russian: 'ночь', latin: "noch'", english: 'night' },
     ],
   },
   {
@@ -309,8 +309,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['sh', 'š'],
     distractorIds: ['che', 'zhe', 'shcha'],
     examples: [
-      { russian: 'школа', english: 'school' },
-      { russian: 'машина', english: 'car' },
+      { russian: 'школа', latin: 'shkola', english: 'school' },
+      { russian: 'машина', latin: 'mashina', english: 'car' },
     ],
   },
   {
@@ -321,8 +321,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['shch', 'sch', 'shh', 'šč'],
     distractorIds: ['sha', 'che', 'tse'],
     examples: [
-      { russian: 'щука', english: 'pike' },
-      { russian: 'овощи', english: 'vegetables' },
+      { russian: 'щука', latin: 'shchuka', english: 'pike' },
+      { russian: 'овощи', latin: 'ovoshchi', english: 'vegetables' },
     ],
   },
   {
@@ -333,8 +333,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['hard sign', 'hardsign', '"'],
     distractorIds: ['soft-sign', 'yery', 'short-i'],
     examples: [
-      { russian: 'объект', english: 'object' },
-      { russian: 'подъезд', english: 'entrance' },
+      { russian: 'объект', latin: 'ob"yekt', english: 'object' },
+      { russian: 'подъезд', latin: 'pod"yezd', english: 'entrance' },
     ],
   },
   {
@@ -345,8 +345,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['y', 'hard y', 'hardy', 'yery'],
     distractorIds: ['short-i', 'i', 'u'],
     examples: [
-      { russian: 'сыр', english: 'cheese' },
-      { russian: 'рыба', english: 'fish' },
+      { russian: 'сыр', latin: 'syr', english: 'cheese' },
+      { russian: 'рыба', latin: 'ryba', english: 'fish' },
     ],
   },
   {
@@ -357,8 +357,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['soft sign', 'softsign', "'"],
     distractorIds: ['hard-sign', 'short-i', 'i'],
     examples: [
-      { russian: 'день', english: 'day' },
-      { russian: 'письмо', english: 'letter' },
+      { russian: 'день', latin: "den'", english: 'day' },
+      { russian: 'письмо', latin: "pis'mo", english: 'letter' },
     ],
   },
   {
@@ -369,8 +369,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['e'],
     distractorIds: ['ye', 'a', 'o'],
     examples: [
-      { russian: 'экран', english: 'screen' },
-      { russian: 'поэт', english: 'poet' },
+      { russian: 'экран', latin: 'ekran', english: 'screen' },
+      { russian: 'поэт', latin: 'poet', english: 'poet' },
     ],
   },
   {
@@ -381,8 +381,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['yu', 'iu', 'ju'],
     distractorIds: ['u', 'yo', 'ya'],
     examples: [
-      { russian: 'юбка', english: 'skirt' },
-      { russian: 'ключ', english: 'key' },
+      { russian: 'юбка', latin: 'yubka', english: 'skirt' },
+      { russian: 'ключ', latin: 'klyuch', english: 'key' },
     ],
   },
   {
@@ -393,8 +393,8 @@ export const ALPHABET: CyrillicLetter[] = [
     acceptedAnswers: ['ya', 'ia', 'ja'],
     distractorIds: ['a', 'yu', 'ye'],
     examples: [
-      { russian: 'яблоко', english: 'apple' },
-      { russian: 'семья', english: 'family' },
+      { russian: 'яблоко', latin: 'yabloko', english: 'apple' },
+      { russian: 'семья', latin: "sem'ya", english: 'family' },
     ],
   },
 ]

@@ -192,19 +192,31 @@
   line-height: 0.95;
 }
 
-.word-translation,
+.word-details,
 .translation-placeholder {
   min-height: 17px;
   margin-top: 5px;
-  color: var(--muted);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.35px;
-  text-transform: uppercase;
+  letter-spacing: 0.2px;
 }
 
-.word-translation {
+.word-details {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
   animation: reveal-translation 220ms ease-out both;
+}
+
+.word-latin {
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.word-separator,
+.word-translation {
+  color: var(--muted);
 }
 
 .translation-placeholder {
