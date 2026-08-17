@@ -16,6 +16,12 @@ import { ProgressScreen } from './components/progress/ProgressScreen'
 import { WordMatchGame } from './components/vocabulary/WordMatchGame'
 import { ALPHABET } from './data/alphabet'
 import { VOCABULARY } from './data/vocabulary'
+import { MiniDialoguesGame } from './games/mini-dialogues'
+import { PhraseGapGame } from './games/phrase-gap'
+import { ReadingSprintGame } from './games/reading-sprint'
+import { SentenceBuilderGame } from './games/sentence-builder'
+import { WordBuilderGame } from './games/word-builder'
+import { WordDictationGame } from './games/word-dictation'
 import { useLearningSession } from './hooks/useLearningSession'
 import { useTheme } from './hooks/useTheme'
 import { useVocabularySession } from './hooks/useVocabularySession'
@@ -99,6 +105,12 @@ function App() {
           onPlayAlphabet={() => setActiveView('alphabet')}
           onPlayWordMatch={() => setActiveView('words')}
           onPlayListenPick={() => setActiveView('listening')}
+          onPlayWordBuilder={() => setActiveView('word-builder')}
+          onPlayWordDictation={() => setActiveView('word-dictation')}
+          onPlaySentenceBuilder={() => setActiveView('sentence-builder')}
+          onPlayPhraseGap={() => setActiveView('phrase-gap')}
+          onPlayMiniDialogues={() => setActiveView('mini-dialogues')}
+          onPlayReadingSprint={() => setActiveView('reading-sprint')}
         />
       ) : activeView === 'progress' ? (
         <main className="progress-layout" id="progress">
@@ -117,6 +129,30 @@ function App() {
       ) : activeView === 'listening' ? (
         <main id="listen-pick">
           <ListenPickGame onExit={() => setActiveView('games')} />
+        </main>
+      ) : activeView === 'word-builder' ? (
+        <main id="word-builder">
+          <WordBuilderGame onExit={() => setActiveView('games')} />
+        </main>
+      ) : activeView === 'word-dictation' ? (
+        <main id="word-dictation">
+          <WordDictationGame onExit={() => setActiveView('games')} />
+        </main>
+      ) : activeView === 'sentence-builder' ? (
+        <main id="sentence-builder">
+          <SentenceBuilderGame onExit={() => setActiveView('games')} />
+        </main>
+      ) : activeView === 'phrase-gap' ? (
+        <main id="phrase-gap">
+          <PhraseGapGame onExit={() => setActiveView('games')} />
+        </main>
+      ) : activeView === 'mini-dialogues' ? (
+        <main id="mini-dialogues">
+          <MiniDialoguesGame onExit={() => setActiveView('games')} />
+        </main>
+      ) : activeView === 'reading-sprint' ? (
+        <main id="reading-sprint">
+          <ReadingSprintGame onExit={() => setActiveView('games')} />
         </main>
       ) : (
         <main className="lesson-layout" id="lesson">

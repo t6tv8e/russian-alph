@@ -1,5 +1,11 @@
 import { ALPHABET } from '../../data/alphabet'
 import { VOCABULARY } from '../../data/vocabulary'
+import { MINI_DIALOGUES_INFO } from '../../games/mini-dialogues'
+import { PHRASE_GAP_INFO } from '../../games/phrase-gap'
+import { READING_SPRINT_INFO } from '../../games/reading-sprint'
+import { SENTENCE_BUILDER_INFO } from '../../games/sentence-builder'
+import { WORD_BUILDER_INFO } from '../../games/word-builder'
+import { WORD_DICTATION_INFO } from '../../games/word-dictation'
 import {
   getMasteredCount,
   getOverallProgress,
@@ -17,6 +23,12 @@ interface GameHomeProps {
   onPlayAlphabet: () => void
   onPlayWordMatch: () => void
   onPlayListenPick: () => void
+  onPlayWordBuilder: () => void
+  onPlayWordDictation: () => void
+  onPlaySentenceBuilder: () => void
+  onPlayPhraseGap: () => void
+  onPlayMiniDialogues: () => void
+  onPlayReadingSprint: () => void
 }
 
 interface GameProgressProps {
@@ -51,11 +63,25 @@ export function GameHome({
   onPlayAlphabet,
   onPlayWordMatch,
   onPlayListenPick,
+  onPlayWordBuilder,
+  onPlayWordDictation,
+  onPlaySentenceBuilder,
+  onPlayPhraseGap,
+  onPlayMiniDialogues,
+  onPlayReadingSprint,
 }: GameHomeProps) {
   const alphabetOverall = getOverallProgress(alphabetProgress)
   const alphabetMastered = getMasteredCount(alphabetProgress)
   const vocabularyOverall = getVocabularyOverallProgress(vocabularyProgress)
   const vocabularyMastered = getVocabularyMasteredCount(vocabularyProgress)
+  const expansionGames = [
+    { info: WORD_BUILDER_INFO, onPlay: onPlayWordBuilder },
+    { info: WORD_DICTATION_INFO, onPlay: onPlayWordDictation },
+    { info: SENTENCE_BUILDER_INFO, onPlay: onPlaySentenceBuilder },
+    { info: PHRASE_GAP_INFO, onPlay: onPlayPhraseGap },
+    { info: MINI_DIALOGUES_INFO, onPlay: onPlayMiniDialogues },
+    { info: READING_SPRINT_INFO, onPlay: onPlayReadingSprint },
+  ]
 
   return (
     <main className="games-home" id="games">
@@ -138,6 +164,30 @@ export function GameHome({
             <span aria-hidden="true">→</span>
           </button>
         </article>
+
+        {expansionGames.map(({ info, onPlay }) => (
+          <article className="game-card game-card--expansion" key={info.id}>
+            <div className="game-card-icon" aria-hidden="true">{info.icon}</div>
+            <div className="game-card-copy">
+              <div className="game-card-topline">
+                <p className="game-card-kicker">{info.kicker}</p>
+                <span className="game-status game-status--new">New</span>
+              </div>
+              <h2>{info.title}</h2>
+              <p>{info.description}</p>
+              <ul className="strategy-list" aria-label="Learning strategies">
+                {info.strategyLabels.map((label) => <li key={label}>{label}</li>)}
+              </ul>
+            </div>
+            <div className="game-card-progress game-card-progress--copy">
+              <span>Adaptive progress is saved separately for this game.</span>
+            </div>
+            <button type="button" className="game-play-button" onClick={onPlay}>
+              Play {info.title}
+              <span aria-hidden="true">→</span>
+            </button>
+          </article>
+        ))}
       </section>
 
       <aside className="home-learning-note" aria-label="Learning guidance">

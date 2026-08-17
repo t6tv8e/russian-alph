@@ -4,7 +4,6 @@ import userEvent from '@testing-library/user-event'
 import App from './App'
 import { ALPHABET } from './data/alphabet'
 import { VOCABULARY } from './data/vocabulary'
-import { LISTENING_STORAGE_KEY } from './hooks/useListeningSession'
 import { STORAGE_KEY } from './hooks/useStoredProgress'
 import { VOCABULARY_STORAGE_KEY } from './hooks/useStoredVocabularyProgress'
 import { THEME_STORAGE_KEY } from './hooks/useTheme'
@@ -13,10 +12,7 @@ import { createVocabularyProgress } from './learning/vocabulary'
 
 describe('language games', () => {
   beforeEach(() => {
-    window.localStorage.removeItem(STORAGE_KEY)
-    window.localStorage.removeItem(LISTENING_STORAGE_KEY)
-    window.localStorage.removeItem(VOCABULARY_STORAGE_KEY)
-    window.localStorage.removeItem(THEME_STORAGE_KEY)
+    window.localStorage.clear()
     delete document.documentElement.dataset.theme
   })
 
@@ -58,6 +54,23 @@ describe('language games', () => {
     expect(screen.getByRole('button', { name: 'Continue with visual practice' })).toBeTruthy()
     expect(screen.getByRole('button', { name: 'Choose Cyrillic letter А' })).toBeDisabled()
   })
+
+  it.each([
+    'Word Builder',
+    'Word Dictation',
+    'Sentence Builder',
+    'Phrase Gap',
+    'Mini Dialogues',
+    'Reading Sprint',
+  ])('opens and exits %s from the home screen', async (title) => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: `Play ${title}` }))
+    expect(screen.getByRole('heading', { name: title, level: 1 })).toBeTruthy()
+    await user.click(screen.getByRole('button', { name: 'Choose a game' }))
+    expect(screen.getByRole('heading', { name: 'What do you want to train?' })).toBeTruthy()
+  }, 15_000)
 
   it('graduates Word Match to typed meaning recall', async () => {
     const user = userEvent.setup()

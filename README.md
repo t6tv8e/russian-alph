@@ -28,7 +28,43 @@ A local-first collection of adaptive games for learning Russian Cyrillic, letter
 - Adaptive retries, scheduled reviews, and weakest-letter practice
 - A visual-practice fallback when Russian browser speech is unavailable
 
-The Games home screen makes every game directly selectable and shows separate Alphabet Trainer and Word Match progress.
+### Word Builder
+
+- English-to-Russian productive spelling with Cyrillic tiles
+- Transliteration scaffolds that fade as words become familiar
+- Repeated-letter handling, distractors, and weakest-word practice
+
+### Word Dictation
+
+- Explicit Russian word playback before answering
+- Sound-to-spelling retrieval with Cyrillic tiles
+- Increasing distractors and fading transliteration support
+
+### Sentence Builder
+
+- 24 beginner sentences assembled from Russian word tiles
+- English and early transliteration scaffolds
+- Fixed punctuation, syntax retrieval, and complete-sentence playback
+
+### Phrase Gap
+
+- 24 contextual cloze prompts
+- Four-choice recognition that graduates to typed Cyrillic or Latin recall
+- Completed-sentence feedback and post-answer audio
+
+### Mini Dialogues
+
+- 18 everyday conversational situations
+- Natural Russian response selection with fading translations
+- Prompt and reply playback plus pragmatic explanations
+
+### Reading Sprint
+
+- A 60-word Cyrillic decoding deck derived from alphabet examples
+- Timed 45-second sprints and untimed 20-card rounds
+- Accuracy, combo scoring, personal bests, and adaptive weak-word selection
+
+The Games home screen makes all nine games directly selectable. Every game keeps independent, versioned progress.
 
 ## Learning design
 
@@ -55,6 +91,7 @@ src/
     progress/     Detailed alphabet progress presentation
     vocabulary/   Word Match game
   data/           Typed alphabet and vocabulary content
+  games/          Six standalone spelling, sentence, dialogue, and fluency games
   hooks/          Persistence, theme, sessions, and speech boundaries
   learning/       Pure scheduling, grading, choices, and progress functions
   styles/         Design tokens, themes, and application styles
@@ -84,5 +121,11 @@ Progress is versioned, local-only, and stored under separate browser keys:
 - `bystro-bukvy-progress-v1`
 - `bystro-bukvy-vocabulary-progress-v1`
 - `bystro-bukvy-listening-progress-v1`
+- `bystro-bukvy-word-builder-progress-v1`
+- `bystro-bukvy-word-dictation-progress-v1`
+- `bystro-bukvy-sentence-builder-progress-v1`
+- `bystro-bukvy-phrase-gap-progress-v1`
+- `bystro-bukvy-mini-dialogues-progress-v1`
+- `bystro-bukvy-reading-sprint-progress-v1`
 
 No account or backend is required.

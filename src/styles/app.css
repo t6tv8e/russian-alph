@@ -1102,6 +1102,16 @@
   font-family: var(--font-sans);
 }
 
+.game-card--expansion .game-card-icon {
+  width: auto;
+  min-width: 68px;
+  align-self: flex-start;
+  padding: 0 13px;
+  color: var(--teal-dark);
+  background: var(--teal-pale);
+  font-size: 23px;
+}
+
 .game-card-topline {
   display: flex;
   align-items: center;

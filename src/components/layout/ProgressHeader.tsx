@@ -1,7 +1,18 @@
 import type { Theme } from '../../hooks/useTheme'
 import { ThemeToggle } from '../common/ThemeToggle'
 
-export type AppSection = 'games' | 'alphabet' | 'words' | 'listening' | 'progress'
+export type AppSection =
+  | 'games'
+  | 'alphabet'
+  | 'words'
+  | 'listening'
+  | 'word-builder'
+  | 'word-dictation'
+  | 'sentence-builder'
+  | 'phrase-gap'
+  | 'mini-dialogues'
+  | 'reading-sprint'
+  | 'progress'
 
 export interface HeaderProgressSummary {
   value: number
