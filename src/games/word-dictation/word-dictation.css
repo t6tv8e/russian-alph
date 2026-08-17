@@ -1,0 +1,414 @@
+.word-dictation {
+  width: min(100%, 68rem);
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  color: var(--ink);
+}
+
+.word-dictation button {
+  color: inherit;
+  font: inherit;
+}
+
+.word-dictation button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.word-dictation__header {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.word-dictation__header h1,
+.word-dictation__completion h1,
+.word-dictation__unavailable h1 {
+  margin: 0.15rem 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.word-dictation__kicker,
+.word-dictation__level {
+  margin: 0;
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.word-dictation__header-progress {
+  display: flex;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.word-dictation__header-progress span {
+  display: grid;
+  text-align: center;
+}
+
+.word-dictation__header-progress strong {
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.word-dictation__panel {
+  border: 1px solid var(--line-soft);
+  border-radius: 1.4rem;
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+}
+
+.word-dictation__question-card {
+  overflow: hidden;
+}
+
+.word-dictation__prompt {
+  padding: clamp(1.25rem, 4vw, 2rem) clamp(1rem, 5vw, 3rem) 0;
+  text-align: center;
+}
+
+.word-dictation__prompt h2 {
+  margin: 0.3rem 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  font-weight: 500;
+}
+
+.word-dictation__scaffold {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+}
+
+.word-dictation__audio-stage {
+  display: grid;
+  justify-items: center;
+  padding: 1.5rem 1rem 1.25rem;
+}
+
+.word-dictation__play {
+  display: flex;
+  width: min(100%, 20rem);
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--gold-pale);
+  box-shadow: 0 8px 24px rgb(var(--gold-rgb) / 18%);
+  cursor: pointer;
+  font-weight: 800;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.word-dictation__play:hover,
+.word-dictation__play--active {
+  background: var(--selection);
+  box-shadow: 0 10px 28px rgb(var(--gold-rgb) / 28%);
+}
+
+.word-dictation__play kbd {
+  margin-left: auto;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 0.35rem;
+  background: var(--paper);
+  font-size: 0.72rem;
+}
+
+.word-dictation__gate-status {
+  min-height: 1.2rem;
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.word-dictation__answer {
+  padding: 1.25rem 1rem 1rem;
+  border-top: 1px solid var(--line-soft);
+  background: var(--surface-subtle);
+  text-align: center;
+}
+
+.word-dictation__answer h3 {
+  margin: 0 0 0.8rem;
+  font-size: 0.86rem;
+}
+
+.word-dictation__slots,
+.word-dictation__bank {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(0.35rem, 2vw, 0.65rem);
+}
+
+.word-dictation__empty-slot,
+.word-dictation__tile {
+  width: clamp(2.35rem, 11vw, 3.4rem);
+  min-width: 2.35rem;
+  height: clamp(2.8rem, 13vw, 3.8rem);
+  border-radius: 0.7rem;
+}
+
+.word-dictation__empty-slot {
+  border: 2px dashed var(--line-strong);
+  background: var(--paper);
+}
+
+.word-dictation__bank {
+  min-height: 3.8rem;
+  padding: 1rem clamp(0.75rem, 5vw, 3rem) 1.4rem;
+  background: var(--surface-subtle);
+}
+
+.word-dictation__tile {
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: 0 3px 8px var(--shadow-color);
+  cursor: pointer;
+  font-family: var(--font-serif) !important;
+  font-size: clamp(1.35rem, 6vw, 2rem) !important;
+  transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+}
+
+.word-dictation__tile:hover:not(:disabled) {
+  border-color: var(--teal);
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+}
+
+.word-dictation__tile--placed {
+  border-color: var(--teal);
+  background: var(--teal-pale);
+}
+
+.word-dictation__tile:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.word-dictation__tile--placed:disabled {
+  opacity: 0.8;
+}
+
+.word-dictation__tile-actions,
+.word-dictation__completion-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.word-dictation__tile-actions {
+  padding: 0 1rem 1.5rem;
+  background: var(--surface-subtle);
+}
+
+.word-dictation__primary,
+.word-dictation__secondary,
+.word-dictation__exit {
+  padding: 0.72rem 1rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-weight: 800 !important;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.word-dictation__primary {
+  border: 1px solid var(--teal);
+  color: var(--on-accent) !important;
+  background: var(--teal);
+}
+
+.word-dictation__primary:hover:not(:disabled) {
+  background: var(--teal-dark);
+}
+
+.word-dictation__secondary,
+.word-dictation__exit {
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.word-dictation__secondary:hover:not(:disabled),
+.word-dictation__exit:hover {
+  border-color: var(--teal);
+  background: var(--surface-hover);
+}
+
+.word-dictation__primary:disabled,
+.word-dictation__secondary:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.word-dictation__feedback {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem clamp(1rem, 5vw, 3rem);
+  border-top: 1px solid;
+}
+
+.word-dictation__feedback p {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+}
+
+.word-dictation__feedback [lang='ru'] {
+  font-family: var(--font-serif);
+  font-size: 1.08em;
+}
+
+.word-dictation__feedback--correct {
+  border-color: var(--success);
+  color: var(--success-text);
+  background: var(--success-pale);
+}
+
+.word-dictation__feedback--incorrect {
+  border-color: var(--coral);
+  color: var(--danger-text);
+  background: var(--coral-pale);
+}
+
+.word-dictation__learning-note {
+  display: flex;
+  max-width: 42rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 1rem auto 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.word-dictation__learning-note p {
+  margin: 0;
+}
+
+.word-dictation--complete,
+.word-dictation--unavailable {
+  display: grid;
+  min-height: min(72vh, 44rem);
+  place-items: center;
+}
+
+.word-dictation__completion,
+.word-dictation__unavailable {
+  width: min(100%, 42rem);
+  padding: clamp(1.5rem, 7vw, 4rem);
+  text-align: center;
+}
+
+.word-dictation__completion > p:not(.word-dictation__kicker),
+.word-dictation__unavailable > p:not(.word-dictation__kicker) {
+  color: var(--muted);
+}
+
+.word-dictation__complete-mark,
+.word-dictation__attention {
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 1rem auto;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--on-accent);
+  background: var(--success);
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.word-dictation__attention {
+  color: var(--ink);
+  background: var(--gold-pale);
+}
+
+.word-dictation__unavailable h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+}
+
+.word-dictation__summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.word-dictation__summary span {
+  display: grid;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  color: var(--muted);
+  background: var(--summary-surface);
+}
+
+.word-dictation__summary strong {
+  color: var(--ink);
+  font-size: 1.3rem;
+}
+
+@media (max-width: 38rem) {
+  .word-dictation__header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .word-dictation__header-progress {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: center;
+  }
+
+  .word-dictation__feedback {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .word-dictation__feedback button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 22rem) {
+  .word-dictation {
+    padding: 0.65rem;
+  }
+
+  .word-dictation__empty-slot,
+  .word-dictation__tile {
+    width: 2.2rem;
+    min-width: 2.2rem;
+    height: 2.75rem;
+  }
+
+  .word-dictation__summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-dictation *,
+  .word-dictation *::before,
+  .word-dictation *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
