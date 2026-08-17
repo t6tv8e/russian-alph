@@ -1,0 +1,369 @@
+.word-builder {
+  width: min(820px, 100%);
+  margin: 0 auto;
+  padding: 40px 0 48px;
+  color: var(--ink);
+}
+
+.word-builder__header {
+  margin-bottom: 22px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.word-builder__kicker {
+  margin: 0;
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.word-builder__header h1 {
+  margin: 5px 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 7vw, 48px);
+  line-height: 1;
+}
+
+.word-builder__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.word-builder__exit,
+.word-builder__secondary,
+.word-builder__audio {
+  min-height: 42px;
+  padding: 0 15px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  color: var(--ink);
+  background: var(--paper);
+  cursor: pointer;
+  font-weight: 750;
+}
+
+.word-builder__exit:hover,
+.word-builder__secondary:hover:not(:disabled),
+.word-builder__audio:hover:not(:disabled) {
+  border-color: var(--teal);
+  color: var(--teal-dark);
+  background: var(--teal-pale);
+}
+
+.word-builder__card,
+.word-builder__complete-card {
+  overflow: hidden;
+  border: 1px solid rgb(var(--ink-rgb) / 14%);
+  border-radius: 24px;
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+}
+
+.word-builder__prompt {
+  padding: 30px 34px 26px;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--mode-surface);
+  text-align: center;
+}
+
+.word-builder__prompt > p:first-child {
+  margin: 0 0 7px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.word-builder__prompt h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 6vw, 39px);
+}
+
+.word-builder__scaffold {
+  width: fit-content;
+  margin: 14px auto 0;
+  padding: 6px 11px;
+  border: 1px solid rgb(var(--gold-rgb) / 42%);
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--gold-pale);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.word-builder__work-area {
+  padding: 30px 34px 34px;
+}
+
+.word-builder__slots,
+.word-builder__bank {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+}
+
+.word-builder__slots {
+  min-height: 68px;
+  margin-bottom: 28px;
+}
+
+.word-builder__slot,
+.word-builder__tile {
+  width: clamp(42px, 8vw, 55px);
+  height: clamp(52px, 9vw, 62px);
+  flex: 0 0 auto;
+  border-radius: 11px;
+}
+
+.word-builder__slot {
+  border: 0;
+  border-bottom: 3px solid var(--line-strong);
+  border-radius: 4px;
+  background: var(--surface-muted);
+}
+
+.word-builder__tile {
+  border: 1.5px solid var(--line-strong);
+  color: var(--ink);
+  background: var(--paper);
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-size: 27px;
+  font-weight: 700;
+  box-shadow: 0 4px 0 var(--line-soft);
+  transition: border-color 120ms ease, background 120ms ease, transform 120ms ease;
+}
+
+.word-builder__tile:hover:not(:disabled) {
+  border-color: var(--teal);
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+}
+
+.word-builder__tile:disabled {
+  cursor: default;
+  opacity: 0.28;
+  box-shadow: none;
+}
+
+.word-builder__tile--placed {
+  border-color: var(--teal);
+  color: var(--teal-dark);
+  background: var(--teal-pale);
+  box-shadow: 0 4px 0 rgb(var(--teal-rgb) / 25%);
+}
+
+.word-builder__tile--placed:disabled {
+  opacity: 1;
+}
+
+.word-builder__bank {
+  min-height: 66px;
+  padding: 18px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 16px;
+  background: var(--surface-subtle);
+}
+
+.word-builder__controls,
+.word-builder__complete-actions {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.word-builder__primary {
+  min-height: 44px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 11px;
+  color: var(--on-accent);
+  background: var(--teal);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.word-builder__primary:hover:not(:disabled) {
+  background: var(--teal-dark);
+}
+
+.word-builder__primary:disabled,
+.word-builder__secondary:disabled,
+.word-builder__audio:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.word-builder__feedback {
+  margin-top: 22px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgb(var(--success-rgb) / 30%);
+  border-radius: 14px;
+  background: var(--success-pale);
+}
+
+.word-builder__feedback--incorrect {
+  border-color: rgb(var(--danger-rgb) / 30%);
+  background: var(--danger-pale);
+}
+
+.word-builder__feedback-copy p {
+  margin: 0;
+  color: var(--success-text);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.word-builder__feedback--incorrect .word-builder__feedback-copy p {
+  color: var(--danger-text);
+}
+
+.word-builder__feedback-copy strong[lang='ru'] {
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 18px;
+}
+
+.word-builder__audio {
+  border-color: rgb(var(--gold-rgb) / 55%);
+  background: var(--gold-pale);
+}
+
+.word-builder__complete-card {
+  padding: 48px 34px 38px;
+  text-align: center;
+}
+
+.word-builder__complete-mark {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--on-accent);
+  background: var(--teal);
+  font-size: 27px;
+}
+
+.word-builder__complete-card h2 {
+  margin: 0 0 8px;
+  font-family: var(--font-serif);
+  font-size: clamp(29px, 6vw, 40px);
+}
+
+.word-builder__complete-card > p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.word-builder__complete-stats {
+  margin: 28px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--summary-surface);
+}
+
+.word-builder__complete-stats div {
+  padding: 18px 10px;
+}
+
+.word-builder__complete-stats div + div {
+  border-left: 1px solid var(--line);
+}
+
+.word-builder__complete-stats strong,
+.word-builder__complete-stats span {
+  display: block;
+}
+
+.word-builder__complete-stats strong {
+  font-family: var(--font-serif);
+  font-size: 25px;
+}
+
+.word-builder__complete-stats span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .word-builder {
+    padding: 25px 0 34px;
+  }
+
+  .word-builder__header {
+    align-items: flex-start;
+  }
+
+  .word-builder__header-actions {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 7px;
+  }
+
+  .word-builder__prompt,
+  .word-builder__work-area {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .word-builder__bank {
+    padding: 13px 8px;
+  }
+
+  .word-builder__feedback {
+    grid-template-columns: 1fr;
+  }
+
+  .word-builder__feedback .word-builder__primary,
+  .word-builder__feedback .word-builder__audio {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .word-builder__header-actions > span {
+    display: none;
+  }
+
+  .word-builder__slot,
+  .word-builder__tile {
+    width: 39px;
+    height: 49px;
+  }
+
+  .word-builder__complete-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .word-builder__complete-stats div + div {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-builder__tile {
+    transition: none;
+  }
+}
